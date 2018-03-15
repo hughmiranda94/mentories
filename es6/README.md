@@ -4,6 +4,13 @@ This repository contains a list of excercises that encourages the development of
 
 Feel free to interact with the repository by cloning the solution, solving the excercises or uploading changes in this structure to improve this dynamic.
 
+## Dynamics
+
+- Clone the repo using this command: ```git clone -b develop https://your.accenture.email@innersource.accenture.com/scm/mdcfed/xd-mentories.git``` 
+- Create a branch from develop with the name ```excercise-<number>```
+- Implement test for the new excercise under ```test/excercise-<number>.spec.js``` and complete 100% coverage
+
+
 ## Excercises
 
 1. [Communicating with a Web Service](excercise-1.md)
@@ -15,7 +22,7 @@ Feel free to interact with the repository by cloning the solution, solving the e
 -   If you cloned befored this repository 
     -	Locate where you cloned this repository, and run:
         -	```git remote remove origin```
-        -	```git remote add origin https://innersource.accenture.com/projects/MDCFED/repos/xd-angular-basics/ ```
+        -	```git remote add origin https://your.accenture.email@innersource.accenture.com/scm/MDCFED/xd-mentories.git ```
         -	```git.config user.email = your.accenture.email@accenture.com```
         -	```git.config user.name = 'Your displayed name in your Accenture contact card'```
         -	```git fetch```
