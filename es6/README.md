@@ -16,10 +16,9 @@ Feel free to interact with the repository by cloning the solution, solving the e
     -	Locate where you cloned this repository, and run:
         -	```git remote remove origin```
         -	```git remote add origin https://innersource.accenture.com/projects/MDCFED/repos/xd-angular-basics/ ```
-        -	```git.config user.email = tu.correo.de.accenture@accenture.com```
+        -	```git.config user.email = your.accenture.email@accenture.com```
         -	```git.config user.name = 'Your displayed name in your Accenture contact card'```
         -	```git fetch```
-
 
 ## How to start the solution?
 - Install the dependencies: ```npm install```
@@ -29,6 +28,5 @@ Feel free to interact with the repository by cloning the solution, solving the e
 - Write your tests in the ```test``` folder, basing your implementation on [Jasmine](http://jasmine.github.io/2.1/introduction.html) framework.
 - Run the command: ```gulp test:unit```
 
-
 ## Contacts
-- Manuel de Jesús Escobedo Escareño <mailto:m.escobedo.escareno@accenture.com?subject=Mentories - Issues with mentoring repository&body=FYI>
+- Manuel de Jesús Escobedo Escareño ```m.escobedo.escareno@accenture.com```
