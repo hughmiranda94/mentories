@@ -1,4 +1,4 @@
-# Comunicándose con un servicio Web
+# Communicating with a Web Service
 
 In this excercise you will implement a method that allows the communication with a web service that pulls information in JSON format using the GET verb. This method should returns a fulfilled promise when the service pulls information after a successfull response or a rejected promised in otherwise.
 

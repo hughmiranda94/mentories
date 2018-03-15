@@ -15,7 +15,7 @@ Feel free to interact with the repository by cloning the solution, solving the e
 -   If you cloned befored this repository 
     -	Locate where you cloned this repository, and run:
         -	```git remote remove origin```
-        -	```git remote add origin``` https://innersource.accenture.com/projects/MDCFED/repos/xd-angular-basics/ 
+        -	```git remote add origin https://innersource.accenture.com/projects/MDCFED/repos/xd-angular-basics/ ```
         -	```git.config user.email = tu.correo.de.accenture@accenture.com```
         -	```git.config user.name = 'Your displayed name in your Accenture contact card'```
         -	```git fetch```
@@ -31,4 +31,4 @@ Feel free to interact with the repository by cloning the solution, solving the e
 
 
 ## Contacts
-- [Manuel de Jesús Escobedo Escareño](mailto:m.escobedo.escareno@accenture.com?subject=Mentories - Issues with mentoring repository&body=FYI)
+- Manuel de Jesús Escobedo Escareño <mailto:m.escobedo.escareno@accenture.com?subject=Mentories - Issues with mentoring repository&body=FYI>
