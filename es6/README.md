@@ -32,6 +32,11 @@ Feel free to interact with the repository by cloning the solution, solving the e
 - Install the dependencies: ```npm install```
 - Run the solution: ```gulp serve```
 
+## Dynamics
+- Create a branch named ```your.enterprise.id``` from develop
+- Upload your solved excercises in the ```your.enterprise.id```'s branch
+- For future excercises, integrate the develop latest changes in the ```your.enterprise.id```'s branch
+
 ## How to test the solution?
 - Write your tests in the ```test``` folder, basing your implementation on [Jasmine](http://jasmine.github.io/2.1/introduction.html) framework.
 - Run the command: ```gulp test:unit```
