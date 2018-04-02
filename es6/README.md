@@ -14,6 +14,7 @@ Feel free to interact with the repository by cloning the solution, solving the e
 ## Excercises
 
 1. [Communicating with a Web Service](excercise-1.md)
+2. [Working with classes](excercise-2.md)
 
 ## Troubleshooting for cloning repository
 -	Install [git credentials manager](https://github.com/Microsoft/Git-Credential-Manager-for-Windows/releases/download/v1.14.0/GCMW-1.14.0.exe)
