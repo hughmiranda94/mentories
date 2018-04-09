@@ -11,10 +11,9 @@ Feel free to interact with the repository by cloning the solution, solving the e
 - Implement test for the new excercise under ```test/excercise-<number>.spec.js``` and complete 100% coverage
 
 
-## Excercises
+## Topics
 
-1. [Communicating with a Web Service](excercise-1.md)
-2. [Working with classes](excercise-2.md)
+1. Export and Import / Modules on ES6
 
 ## Troubleshooting for cloning repository
 -	Install [git credentials manager](https://github.com/Microsoft/Git-Credential-Manager-for-Windows/releases/download/v1.14.0/GCMW-1.14.0.exe)

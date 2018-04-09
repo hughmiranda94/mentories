@@ -1,20 +1,19 @@
-# Communicating with a Web Service
+# Export and Import / Modules on ES6
 
-In this excercise you will implement a method that allows the communication with a web service that pulls information in JSON format using the GET verb. This method should returns a fulfilled promise when the service pulls information after a successfull response or a rejected promised in otherwise.
+In this excercise you will practice how to manage the module system suggested on ES6.
 
-This implementation will be stored under ```src/utils/ajax.js```, and anywhere you include this library you should use ```Ajax``` as an alias.
+1. Import all components from a file as an alias
+2. Import particular component from a file
+3. Import particular components from a file
+4. Import default component from a file
+5. Import default and particular component(s) from a file
+6. Import a file with side effects
+7. Import a file(s) assigning an alias to current instance
+8. Set a proper export mode to previous alternatives
 
-This excercise is considered solved when you implement at least three unit tests under ```test/excercise-1.spec.js```, covering all the following scenarios:
+## References
 
-- ```Ajax.load``` method should exists
-- ```Ajax.load``` method returns a fulfilled promise when a service is successfully pulled
-- ```Ajax.load``` method returns a rejected promise when you interact with an invalid service
+1. [Mdn Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 
-## ES2015 topics seeing in this excercise
-
-- [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-- [ES2015 modules](http://exploringjs.com/es6/ch_modules.html#sec_basics-of-es6-modules)
-
-## Other topics seeing in this excercise
-
-- [XMLHttpRequest, Raw Ajax call](https://developer.mozilla.org/en/docs/Learn/JavaScript/Objects/JSON)
+2. [Cheatsheet]
+https://hackernoon.com/import-export-default-require-commandjs-javascript-nodejs-es6-vs-cheatsheet-different-tutorial-example-5a321738b50f)
