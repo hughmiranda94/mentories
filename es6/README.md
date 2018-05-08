@@ -15,6 +15,7 @@ Feel free to interact with the repository by cloning the solution, solving the e
 
 1. Export and Import / Modules on ES6
 2. Destructuring I, Bias
+3. Object literals, Bias
 
 ## Troubleshooting for cloning repository
 -	Install [git credentials manager](https://github.com/Microsoft/Git-Credential-Manager-for-Windows/releases/download/v1.14.0/GCMW-1.14.0.exe)
