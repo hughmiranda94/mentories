@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { PopMenuComponent } from './components/pop-menu/pop-menu.component';
@@ -14,6 +13,7 @@ import { PopCardComponent } from './components/pop-menu/pop-card/pop-card.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { HeaderComponent } from './components/landing-page/main-content/header/header.component';
+import { ReversePipe } from '../app/components/pop-menu/pop-menu.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { HeaderComponent } from './components/landing-page/main-content/header/h
     PopCardComponent,
     FooterComponent,
     NewsletterComponent,
-    HeaderComponent
+    HeaderComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule

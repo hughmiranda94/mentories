@@ -1,3 +1,15 @@
-<p>
-  pop-menu works!
-</p>
+<div class="container-fluid pop-menu">
+  <section class="title">
+    <h1>Popular Dishes</h1>
+    <p>Locally grown plate mustard chopsticks vegetarian custard taste foods sous-chef hummus
+      <br> relish soda marinate bistro Lovely authentic cheese funghi</p>
+  </section>
+
+
+  <div class="scrollmenu">
+    <div class="scrollitem" *ngFor="let card of popCards | reverse">
+      <app-pop-card [card]=card></app-pop-card>
+    </div>
+  </div>
+
+</div>

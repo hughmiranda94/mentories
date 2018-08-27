@@ -1,3 +1,16 @@
-<p>
-  pop-card works!
-</p>
+<a href="#">
+<div class="container-fluid pop-card">
+
+    <div class="row">
+      <div class="col-10 image">
+        <img src="assets/{{card.imgUrl}}" class="card-img">
+      </div>
+      <div class="col-2 info">
+        <p class="card-id">{{formatNumber(card.id)}}</p>
+        <p class="hyphen">|</p>
+        <p class="card-name">{{card.name}}</p>
+      </div>
+    </div>
+</div>
+</a>
+

@@ -64,8 +64,10 @@
     header {
       width: 100%;
       .navbar-brand {
-        font-weight: 700;
-        letter-spacing: -0.1rem;
+        img{
+          width: auto;
+          height: 2.5rem;
+        }
       }
       .navbar-nav {
         li {

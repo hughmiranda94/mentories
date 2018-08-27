@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { DatabaseService } from '../../database.service';
+
 
 @Component({
   selector: 'app-pop-menu',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopMenuComponent implements OnInit {
 
-  constructor() { }
-
+  public popCards =  this.db.getPopCards();
+  constructor(private db : DatabaseService) { }
   ngOnInit() {
   }
+}
 
+@Pipe({name: 'reverse'})
+export class ReversePipe implements PipeTransform {
+
+  transform(value) {
+      if (!value) return;
+      return value.reverse();
+    }
 }

@@ -70,9 +70,9 @@
           cursor: pointer; }
     .landing-page .main-content header {
       width: 100%; }
-      .landing-page .main-content header .navbar-brand {
-        font-weight: 700;
-        letter-spacing: -0.1rem; }
+      .landing-page .main-content header .navbar-brand img {
+        width: auto;
+        height: 2.5rem; }
       .landing-page .main-content header .navbar-nav li {
         font-size: 0.75rem;
         margin-left: 2.5rem;
@@ -138,6 +138,91 @@
         filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); }
       .landing-page .social-nav .social-links a {
         color: black; }
+
+.pop-menu {
+  text-align: center;
+  height: 100vh;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #f9f9f9; }
+  .pop-menu .title {
+    color: #000d40; }
+    .pop-menu .title h1 {
+      font-size: 3rem;
+      padding-top: 5rem;
+      margin-bottom: 2rem; }
+    .pop-menu .title p {
+      font-size: 0.9rem; }
+  .pop-menu .scrollmenu {
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+    min-height: 55vh;
+    overflow: auto;
+    white-space: nowrap; }
+    .pop-menu .scrollmenu .scrollitem {
+      display: inline-block;
+      text-align: center;
+      padding: 14px;
+      text-decoration: none; }
+
+.pop-card {
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 1rem 1rem 3rem #777;
+  box-shadow: 1rem 1rem 3rem #777;
+  margin-top: 5rem;
+  padding: 0;
+  overflow: hidden;
+  color: black;
+  width: 30rem;
+  height: 19rem; }
+  .pop-card .row {
+    margin-right: 0;
+    margin-left: 0;
+    height: 100%; }
+    .pop-card .row .image {
+      padding: 0;
+      overflow: hidden; }
+    .pop-card .row .info {
+      background-color: white; }
+  .pop-card img {
+    height: 100%;
+    width: auto; }
+  .pop-card .card-id {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem; }
+  .pop-card .hyphen {
+    font-size: 1.75rem;
+    margin: 0; }
+  .pop-card .card-name {
+    margin: 0;
+    margin-top: 2rem;
+    /* Safari */
+    -webkit-transform: rotate(90deg);
+    /* Firefox */
+    -moz-transform: rotate(90deg);
+    /* IE */
+    -ms-transform: rotate(90deg);
+    /* Opera */
+    -o-transform: rotate(90deg);
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); }
+
+a {
+  color: black;
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: none;
+  color: #7c7c7c; }
+  a:hover .pop-card {
+    -webkit-transition: -webkit-transform .2s;
+    transition: -webkit-transform .2s;
+    -o-transition: transform .2s;
+    transition: transform .2s;
+    transition: transform .2s, -webkit-transform .2s;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1); }
 
 html, body {
   height: 100%; }

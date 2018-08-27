@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { PopCard } from '../../../database.service';
 
 @Component({
   selector: 'app-pop-card',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopCardComponent implements OnInit {
 
+  @Input() public card : PopCard;
+
   constructor() { }
 
   ngOnInit() {
+
+    console.log(this.card);
   }
+
+  public formatNumber(number) {
+    return (number < 10 ? '0' : '') + number;
+}
 
 }

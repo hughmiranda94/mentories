@@ -1,0 +1,98 @@
+.pop-menu {
+  text-align: center;
+  height: 100vh;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #f9f9f9;
+  .title {
+    color: #000d40;
+    h1 {
+      font-size: 3rem;
+      padding-top: 5rem;
+      margin-bottom: 2rem;
+    }
+    p {
+      font-size: 0.9rem;
+    }
+  }
+  .scrollmenu {
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+    min-height: 55vh;
+    overflow: auto;
+    white-space: nowrap;
+    
+    .scrollitem{
+      display: inline-block;
+      text-align: center;
+      padding: 14px;
+      text-decoration: none;
+    }
+
+  }
+}
+
+.pop-card {
+  border-radius: 0.5rem;
+  box-shadow: 1rem 1rem 3rem #777;
+  margin-top: 5rem;
+  padding: 0;
+  overflow: hidden;
+  color: black;
+  width: 30rem;
+  height: 19rem;
+
+  .row{
+    margin-right: 0;
+    margin-left: 0;
+    height:100%;
+    .image{
+      padding: 0;
+      overflow: hidden;
+    }
+    .info{
+      // padding: 0;
+      background-color: white;
+    }
+  }
+  img {
+    // overflow: hidden;
+    height: 100%;
+    width: auto;
+  }
+  .card-id{
+    margin-top:1rem;
+    margin-bottom: 0.5rem;
+  }
+  .hyphen{
+    font-size: 1.75rem;
+    margin: 0;
+  }
+  .card-name {
+    margin:0;
+    margin-top: 2rem;
+    /* Safari */
+    -webkit-transform: rotate(90deg);
+    /* Firefox */
+    -moz-transform: rotate(90deg);
+    /* IE */
+    -ms-transform: rotate(90deg);
+    /* Opera */
+    -o-transform: rotate(90deg);
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  }
+}
+
+a {
+  color: black;    
+  text-decoration: none;
+}
+a:hover { 
+  text-decoration: none;
+  color: #7c7c7c;
+  .pop-card{
+    transition: transform .2s;
+    transform: scale(1.1);
+  }
+}
