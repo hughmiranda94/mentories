@@ -1,0 +1,143 @@
+.landing-page {
+  text-align: center;
+  height: 100vh;
+  padding-left: 0;
+  padding-right: 0; }
+  .landing-page .row {
+    height: 100%;
+    margin-left: 0;
+    margin-right: 0; }
+    .landing-page .row .column {
+      height: 100%;
+      padding-left: 0;
+      padding-right: 0; }
+  .landing-page .main-content {
+    padding-left: 0;
+    padding-right: 0; }
+    .landing-page .main-content .header-row {
+      height: 10vh; }
+    .landing-page .main-content .box-row {
+      height: 90vh;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+      .landing-page .main-content .box-row .box {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center; }
+        .landing-page .main-content .box-row .box p {
+          margin-bottom: 0; }
+        .landing-page .main-content .box-row .box .small-text {
+          font-size: 1.25rem; }
+          .landing-page .main-content .box-row .box .small-text img {
+            width: 2.2rem;
+            height: 2.2rem;
+            margin-top: -1rem; }
+        .landing-page .main-content .box-row .box .large-text {
+          font-size: 4rem;
+          font-weight: 700; }
+        .landing-page .main-content .box-row .box button {
+          font-size: 0.55rem;
+          padding: 0.75rem;
+          padding-left: 2.25rem;
+          padding-right: 2.25rem;
+          margin-top: 3rem;
+          border-radius: 0.15rem;
+          color: white;
+          border: none;
+          background-color: #9cbd44; }
+        .landing-page .main-content .box-row .box button:hover {
+          cursor: pointer; }
+    .landing-page .main-content header {
+      width: 100%; }
+      .landing-page .main-content header .navbar-brand {
+        font-weight: 700;
+        letter-spacing: -0.1rem; }
+      .landing-page .main-content header .navbar-nav li {
+        font-size: 0.75rem;
+        margin-left: 2.5rem;
+        margin-right: 2.5rem; }
+  .landing-page .side-content {
+    background: no-repeat;
+    background-image: url("assets/tortillas.jpg");
+    background-position: center;
+    background-size: 103%;
+    height: 100%;
+    width: auto; }
+  .landing-page .social-nav {
+    background: no-repeat;
+    background-image: url("assets/social.jpg");
+    background-size: 100%;
+    height: 100%;
+    width: 100%; }
+    .landing-page .social-nav .search-shop-links {
+      padding-top: 10vh;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -ms-flex-pack: distribute;
+      justify-content: space-around; }
+      .landing-page .social-nav .search-shop-links img {
+        width: 2rem;
+        height: 2rem; }
+    .landing-page .social-nav .social-links {
+      padding-top: 10vh; }
+      .landing-page .social-nav .social-links ul {
+        height: 80vh;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center; }
+      .landing-page .social-nav .social-links li {
+        padding: 2.5rem;
+        /* Safari */
+        -webkit-transform: rotate(90deg);
+        /* Firefox */
+        -moz-transform: rotate(90deg);
+        /* IE */
+        -ms-transform: rotate(90deg);
+        /* Opera */
+        -o-transform: rotate(90deg);
+        /* Internet Explorer */
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); }
+      .landing-page .social-nav .social-links a {
+        color: black; }
+
+html, body {
+  height: 100%; }
