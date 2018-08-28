@@ -29,8 +29,8 @@ import { ReversePipe } from '../app/components/pop-menu/pop-menu.component';
     PopCardComponent,
     FooterComponent,
     NewsletterComponent,
-    HeaderComponent,
-    ReversePipe
+    ReversePipe,
+    HeaderComponent    
   ],
   imports: [
     BrowserModule
