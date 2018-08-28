@@ -13,8 +13,6 @@ export class PopCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
-    console.log(this.card);
   }
 
   public formatNumber(number) {

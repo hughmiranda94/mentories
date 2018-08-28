@@ -11,18 +11,24 @@ export class DatabaseService {
   {
     return popCards;
   }
+
+  getFoodItems() : FoodItem[]
+  {
+    return foodItems;
+  }
 }
 
 export class PopCard {
   id: number;
   name: string;
   imgUrl: string;
+}
 
-  constructor()
-  {
-
-  }
-
+export class FoodItem{
+  id: number;
+  title: string;
+  info: string;
+  imgUrl: string;
 }
 
 let popCards : PopCard[] =
@@ -46,5 +52,32 @@ let popCards : PopCard[] =
     id: 4,
     name: 'Pasta Carbonara',
     imgUrl: 'fruit.jpg'
+  },
+  {
+    id: 5,
+    name: 'Salade de la maison',
+    imgUrl: 'weird-salad.jpg'
+  }
+]
+
+let foodItems : FoodItem [] = [
+
+  {
+    id: 0,
+    title: 'The perfect place to enjoy the life and food.',
+    info: 'Locally grown plate mustard chopsticks vegetarian'+
+    'curstard taste food sous chef hummus relish soda marinate bistro. Lovely '+
+    'autehntic cheese funghi. Salt pizza chese peas lunch firdge dish banquet tea. '+
+    'Organic restauratns pie delivery vegetables local aroma spoon consumer',
+    imgUrl: 'burger.png'
+  },
+  {
+    id: 1,
+    title: 'An outstanding master of Italian cuisine.',
+    info: 'Locally grown plate mustard chopsticks vegetarian'+
+    'curstard taste food sous chef hummus relish soda marinate bistro. Lovely '+
+    'autehntic cheese funghi. Salt pizza chese peas lunch firdge dish banquet tea. '+
+    'Organic restauratns pie delivery vegetables local aroma spoon consumer',
+    imgUrl: 'fish-eggs.png'
   }
 ]

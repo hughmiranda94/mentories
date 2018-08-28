@@ -1,0 +1,89 @@
+@import 'constants';
+.food-info {
+  height: 100vh;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  top: 200vh;
+  z-index: 1;
+  .box-row {
+    margin-right: 0;
+    margin-left: 0;
+    height: 100vh; // height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    .box {
+      width: 80%;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      p {
+        color: $main-font-color;
+        margin-bottom: 0;
+      }
+      .content {
+        width: 100%;
+        height: 100%;
+        padding-right: 0;
+        padding-left: 0;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+        .content-container {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: center;
+          .food-info-content-img {
+            margin-right: 0;
+            margin-left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            img {
+              height: auto;
+              width: 100%;
+              -webkit-filter: drop-shadow(5px 5px 5px $shadow-color);
+              filter: drop-shadow(5px 5px 5px $shadow-color);
+            }
+          }
+          .food-info-content-txt {
+            width: 75%;
+            height: 100%;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 2rem;
+            .title {
+              color: $main-font-color;
+              font-size: 2.5rem;
+              font-weight: 700;
+            }
+            .info {
+              color: $main-font-color;
+              margin-top: 1.5rem;
+              font-size: 0.85rem;
+            }
+            .read-more{
+              margin-top: 3rem;
+              border: none;
+              width: 10rem;
+              height: 2rem;
+              font-size: 0.75rem;
+              background-color: $food-info-button-bg;
+              color: $food-info-button-txt;
+            }
+          }
+        }
+      }
+    }
+  }
+}

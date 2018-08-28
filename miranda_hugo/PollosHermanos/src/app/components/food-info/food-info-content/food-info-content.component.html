@@ -1,0 +1,10 @@
+<div class="fluid-container content-container">
+  <div *ngIf="isImage" class="food-info-content-img">
+    <img src='assets/{{foodItem.imgUrl}}'>
+  </div>
+  <div *ngIf="isText" class="food-info-content-txt">
+    <p class="title">{{foodItem.title}}</p>
+    <p class="info">{{foodItem.info}}</p>
+    <button class="read-more">Read More -></button>
+  </div>
+</div>
