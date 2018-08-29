@@ -285,6 +285,10 @@ a:hover {
   top: 200vh;
   z-index: 1; }
   .food-info .box-row {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f9f9f9));
+    background-image: -webkit-linear-gradient(#ffffff, #f9f9f9);
+    background-image: -o-linear-gradient(#ffffff, #f9f9f9);
+    background-image: linear-gradient(#ffffff, #f9f9f9);
     margin-right: 0;
     margin-left: 0;
     height: 100vh;
@@ -293,8 +297,8 @@ a:hover {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -ms-flex-flow: column nowrap;
-    flex-flow: column nowrap;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -308,8 +312,8 @@ a:hover {
       display: flex;
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-      flex-flow: row nowrap;
+      -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
@@ -336,47 +340,62 @@ a:hover {
         align-items: center;
         -webkit-box-pack: center;
         -ms-flex-pack: center;
-        justify-content: center; }
+        justify-content: center;
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%; }
         .food-info .box-row .box .content .content-container {
           display: -webkit-box;
           display: -ms-flexbox;
           display: flex;
           -webkit-box-orient: horizontal;
           -webkit-box-direction: normal;
-          -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
+          -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
           -webkit-box-align: center;
           -ms-flex-align: center;
           align-items: center;
           -webkit-box-pack: center;
           -ms-flex-pack: center;
-          justify-content: center; }
+          justify-content: center;
+          -ms-flex-preferred-size: 100%;
+          flex-basis: 100%; }
           .food-info .box-row .box .content .content-container .food-info-content-img {
             margin-right: 0;
             margin-left: 0;
-            width: 100%;
-            height: 100%;
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
             -webkit-box-orient: horizontal;
             -webkit-box-direction: normal;
-            -ms-flex-flow: row nowrap;
-            flex-flow: row nowrap;
+            -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
             -webkit-box-align: center;
             -ms-flex-align: center;
             align-items: center;
             -webkit-box-pack: center;
             -ms-flex-pack: center;
-            justify-content: center; }
+            justify-content: center;
+            width: 100%;
+            height: 100%; }
             .food-info .box-row .box .content .content-container .food-info-content-img img {
               height: auto;
               width: 100%;
               -webkit-filter: drop-shadow(5px 5px 5px #777777);
               filter: drop-shadow(5px 5px 5px #777777); }
+            .food-info .box-row .box .content .content-container .food-info-content-img img:hover {
+              -webkit-transition: -webkit-transform .1s;
+              transition: -webkit-transform .1s;
+              -o-transition: transform .1s;
+              transition: transform .1s;
+              transition: transform .1s, -webkit-transform .1s;
+              -webkit-transform: scale(1.2);
+              -ms-transform: scale(1.2);
+              transform: scale(1.2); }
           .food-info .box-row .box .content .content-container .food-info-content-txt {
-            width: 75%;
-            height: 100%;
+            -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+            margin-left: 12.5%;
+            margin-right: 12.5%;
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
@@ -398,15 +417,213 @@ a:hover {
             .food-info .box-row .box .content .content-container .food-info-content-txt .info {
               color: #000d40;
               margin-top: 1.5rem;
-              font-size: 0.85rem; }
+              font-size: 0.85rem;
+              font-weight: 400; }
             .food-info .box-row .box .content .content-container .food-info-content-txt .read-more {
               margin-top: 3rem;
               border: none;
-              width: 10rem;
-              height: 2rem;
-              font-size: 0.75rem;
+              width: 8rem;
+              height: 2.4rem;
+              font-size: 0.80rem;
+              font-weight: 400;
               background-color: #f0f5e3;
               color: #b1cb6c; }
+              .food-info .box-row .box .content .content-container .food-info-content-txt .read-more .arrow {
+                width: 1.11rem;
+                height: auto; }
+
+.contact-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  height: 100vh;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  top: 200vh;
+  z-index: 1;
+  background-image: url("assets/oranges.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover; }
+  .contact-page .book-card {
+    text-align: center;
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+    color: white;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#2bcf8f), to(#02b6b8));
+    background-image: -webkit-linear-gradient(#2bcf8f, #02b6b8);
+    background-image: -o-linear-gradient(#2bcf8f, #02b6b8);
+    background-image: linear-gradient(#2bcf8f, #02b6b8); }
+    .contact-page .book-card h1 {
+      margin: 2rem;
+      font-size: 1.75rem;
+      font-weight: 600; }
+    .contact-page .book-card p {
+      margin: 2rem 3rem;
+      font-size: 0.9rem; }
+    .contact-page .book-card .book-now {
+      margin: 2rem;
+      margin-top: 0;
+      border: none;
+      width: 8rem;
+      height: 2.4rem;
+      font-size: 0.80rem;
+      font-weight: 400;
+      background-color: #f0f5e3;
+      color: #b1cb6c; }
+      .contact-page .book-card .book-now .arrow {
+        width: 1.11rem;
+        height: auto; }
+
+.spec-menu {
+  width: 100%;
+  min-height: 100vh;
+  padding-left: 0;
+  padding-right: 0;
+  position: absolute;
+  top: 500vh;
+  z-index: 1;
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #f9f9f9; }
+  .spec-menu .title {
+    color: #000d40; }
+    .spec-menu .title h1 {
+      font-size: 3rem;
+      padding-top: 5rem;
+      margin-bottom: 2rem; }
+    .spec-menu .title p {
+      font-size: 0.9rem; }
+  .spec-menu .special-menu {
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap; }
+    .spec-menu .special-menu .special-item {
+      display: inline-block;
+      text-align: center;
+      padding: 14px;
+      text-decoration: none;
+      margin-top: 3rem; }
+  .spec-menu .spec-card {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    -webkit-box-shadow: 1rem 1rem 3rem #777777;
+    box-shadow: 1rem 1rem 3rem #777777;
+    padding: 0;
+    overflow: hidden;
+    color: #000d40;
+    width: 100%;
+    height: 50vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .spec-menu .spec-card .top-part {
+      height: 50%; }
+      .spec-menu .spec-card .top-part .image {
+        padding: 1rem;
+        height: 90%;
+        overflow: hidden; }
+        .spec-menu .spec-card .top-part .image .card-img {
+          width: 100%; }
+    .spec-menu .spec-card .card-price {
+      font-size: 1.75rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+      top: -2rem;
+      left: 38%;
+      margin-bottom: 0;
+      padding: 1rem 1rem 1rem 1rem;
+      border-right: 0.75rem;
+      border-left: 0.75rem;
+      border-radius: 50%;
+      background-color: #ffffff;
+      height: 5rem;
+      width: 5rem; }
+    .spec-menu .spec-card .bottom-part {
+      height: 50%; }
+      .spec-menu .spec-card .bottom-part .info {
+        height: 100%;
+        text-align: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: column wrap;
+        flex-flow: column wrap;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center; }
+        .spec-menu .spec-card .bottom-part .info .card-name {
+          font-size: 1.5rem;
+          font-weight: 700; }
+        .spec-menu .spec-card .bottom-part .info .card-info {
+          padding-left: 1rem;
+          padding-right: 1rem;
+          font-size: 1rem; }
+
+a {
+  color: #000d40;
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: none; }
+  a:hover .spec-card {
+    -webkit-transition: -webkit-transform .2s;
+    transition: -webkit-transform .2s;
+    -o-transition: transform .2s;
+    transition: transform .2s;
+    transition: transform .2s, -webkit-transform .2s;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1); }
+
+.newsletter {
+  position: relative;
+  top: 350vh;
+  height: 25vh;
+  width: 100%;
+  z-index: 1;
+  background-color: #f9f9f9;
+  background-image: url(assets/pink.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 html, body {
   height: 100%; }

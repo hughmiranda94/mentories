@@ -8,7 +8,7 @@ import { PopCard } from '../../../database.service';
 })
 export class PopCardComponent implements OnInit {
 
-  @Input() public card : PopCard;
+  @Input() card : PopCard;
 
   constructor() { }
 

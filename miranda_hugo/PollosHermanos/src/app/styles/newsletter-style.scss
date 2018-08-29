@@ -1,0 +1,14 @@
+@import 'constants';
+
+.newsletter{
+  position: relative;
+  top: 350vh;
+  height: 25vh;
+  width: 100%;
+  z-index: 1;
+  background-color: $bg-color-2;
+  background-image: url(assets/pink.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

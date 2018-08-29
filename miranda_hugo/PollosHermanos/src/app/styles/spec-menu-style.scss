@@ -1,0 +1,112 @@
+@import 'constants';
+.spec-menu {
+  width: 100%;
+  min-height: 100vh;
+  padding-left: 0;
+  padding-right: 0;
+  position: absolute;
+  top: 500vh;
+  z-index: 1;
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: $bg-color-2;
+  .title {
+    color: $main-font-color;
+    h1 {
+      font-size: 3rem;
+      padding-top: 5rem;
+      margin-bottom: 2rem;
+    }
+    p {
+      font-size: 0.9rem;
+    }
+  }
+  .special-menu {
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+    display: flex;
+    flex-flow: row wrap;
+    .special-item {
+      display: inline-block;
+      text-align: center;
+      padding: 14px;
+      text-decoration: none;
+      margin-top: 3rem;
+    }
+  }
+  .spec-card {
+    background-color: $bg-color-1;
+    border-radius: 0.5rem;
+    box-shadow: 1rem 1rem 3rem $shadow-color;
+    padding: 0;
+    overflow: hidden;
+    color: $main-font-color;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    .top-part {
+      height: 50%;
+      .image {
+        padding: 1rem;
+        height: 90%;
+        overflow: hidden;
+        .card-img {
+          width: 100%;
+        }
+      }
+    }
+    .card-price {
+      font-size: 1.75rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+      top: -2rem;
+      left: 38%;
+      margin-bottom: 0;
+      padding: 1rem 1rem 1rem 1rem;
+      border-right: 0.75rem;
+      border-left: 0.75rem;
+      border-radius: 50%;
+      background-color: $bg-color-1;
+      height: 5rem;
+      width: 5rem;
+    }
+    .bottom-part {
+      height: 50%;
+      .info {
+        height: 100%;
+        text-align: center;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        .card-name {
+          font-size: 1.5rem;
+          font-weight: 700;
+        }
+        .card-info {
+          padding-left: 1rem;
+          padding-right: 1rem;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+a {
+  color: $main-font-color;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  .spec-card {
+    transition: transform .2s;
+    transform: scale(1.1);
+  }
+}

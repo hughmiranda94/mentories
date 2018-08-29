@@ -1,3 +1,13 @@
-<p>
-  spec-menu works!
-</p>
+<div class="fluid-container spec-menu">
+  <section class="title">
+    <h1>Special Menu</h1>
+    <p>Locally grown plate mustard chopsticks vegetarian custard taste foods sous-chef hummus
+      <br> relish soda marinate bistro Lovely authentic cheese funghi</p>
+  </section>
+  <div class="container special-menu">
+    <div class="col-4 special-item" *ngFor="let card of specCards ">
+      <app-spec-card [card]=card></app-spec-card>
+    </div>
+  </div>
+</div>
+<app-newsletter></app-newsletter>

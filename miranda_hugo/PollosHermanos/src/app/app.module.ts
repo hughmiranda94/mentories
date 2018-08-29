@@ -17,6 +17,7 @@ import { ReversePipe } from '../app/components/pop-menu/pop-menu.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FoodInfoContentComponent } from './components/food-info/food-info-content/food-info-content.component';
+import { SpecCardComponent } from './components/spec-menu/spec-card/spec-card.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FoodInfoContentComponent } from './components/food-info/food-info-conte
     NewsletterComponent,
     ReversePipe,
     HeaderComponent,
-    FoodInfoContentComponent    
+    FoodInfoContentComponent,
+    SpecCardComponent    
   ],
   imports: [
     BrowserModule,

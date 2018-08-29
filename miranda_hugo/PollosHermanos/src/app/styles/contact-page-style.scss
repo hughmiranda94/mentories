@@ -1,0 +1,49 @@
+@import 'constants';
+.contact-page {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 100%;
+  height: 100vh;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  top: 200vh;
+  z-index: 1;
+  background-image: url('assets/oranges.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  .book-card {
+    text-align: center;
+    flex-basis: 25%;
+    color: $secondary-font-color;
+    background-image: linear-gradient(#2bcf8f, #02b6b8);
+    h1 {
+      margin: 2rem;
+      font-size: 1.75rem;
+      font-weight: 600;
+    }
+    p {
+      margin: 2rem 3rem;
+      font-size: 0.9rem;
+    }
+    .book-now {
+      margin: 2rem;
+      margin-top: 0;
+      border: none;
+      width: 8rem;
+      height: 2.4rem;
+      font-size: 0.80rem;
+      font-weight: 400;
+      background-color: $food-info-button-bg;
+      color: $food-info-button-txt;
+      .arrow {
+        width: 1.11rem;
+        height: auto;
+      }
+    }
+  }
+}

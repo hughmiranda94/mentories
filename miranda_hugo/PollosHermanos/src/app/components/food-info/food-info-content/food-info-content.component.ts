@@ -16,10 +16,8 @@ export class FoodInfoContentComponent implements OnInit {
   public foodItem : FoodItem;
 
   fooditem(fooditem: FoodItem) {
-    return fooditem.id == this.contentId;
+    return fooditem.id === this.contentId;
   }
-
-  //public foodItem: FoodItem = this.db.getFoodItems().find(this.fooditem);
 
   public isImage: boolean = false;
   public isText: boolean = false;
@@ -30,12 +28,9 @@ export class FoodInfoContentComponent implements OnInit {
       return item.id=== this.contentId;
     });
     console.log(this.contentId);
-    if (this.typeOfContent === 'image') {
-      this.isImage = true;
-    }
-    if (this.typeOfContent === 'text') {
-      this.isText = true;
-    }
+    (this.typeOfContent === 'image')? this.isImage = true : this.isImage = false;
+    (this.typeOfContent === 'text')? this.isText = true : this.isText = false;
+
   }
 
 }
