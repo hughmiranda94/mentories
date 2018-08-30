@@ -1,0 +1,105 @@
+app-newsletter {
+  width: 100%;
+}
+.footer {
+  // position: relative;
+  // bottom: -350vh;  
+  // z-index: 1;
+  height: 75vh;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  // margin-top: 5vh;
+  // margin-bottom: 5vh;
+  .newsfoot {
+    height: 40%;
+    width: 100%;
+  }
+  .linksfoot {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    // background-image: url('assets/waves.png');
+    background: linear-gradient(
+    rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.50)),
+     url(assets/waves.png);  
+     background-repeat: no-repeat;  
+    background-position-x: center;
+    background-position-y: 20%;
+    hr{
+      width: 50%;
+      display: block;
+      border: 1px solid;
+      border-color: rgba(0, 0, 0, 0.05);
+    }
+    .copy{
+      color: #aaaaaa;
+    }
+  }
+  .foot-nav {
+    // margin-top:5vh;
+    width: 33%;
+    height: 20%;
+    .navlist {
+      flex-basis: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: space-around;
+      .nav-link {
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+    }
+  }
+  .foot-social {
+    width: 20%;
+    height: 20%; // margin: 5% 37.5% 5% 37.5%;
+    // margin-left: 37.5%;
+    // margin-right:37.5%;
+    margin-bottom: 10vh;
+    .navlist {
+      flex-basis: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: space-evenly;
+      .social-icons {
+        display: block;
+        width: 2.5rem;
+        height: 2.5rem;
+        background-position: center;
+        background-size: cover;
+      }
+      #twitter {
+        background-image: url('assets/gray/Twitter.png');
+      }
+      #twitter:hover {
+        background-image: url('assets/Twitter.png');
+      }
+      #facebook {
+        background-image: url('assets/gray/Facebook.png');
+      }
+      #facebook:hover {
+        background-image: url('assets/Facebook.png');
+      }
+      #instagram {
+        background-image: url('assets/gray/Instagram.png');
+      }
+      #instagram:hover {
+        background-image: url('assets/Instagram.png');
+      }
+      #youtube {
+        background-image: url('assets/gray/YouTube.png');
+      }
+      #youtube:hover {
+        background-image: url('assets/YouTube.png');
+      }
+    }
+  }
+}

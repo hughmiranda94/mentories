@@ -1,6 +1,7 @@
 @import 'constants';
 .landing-page {
-  position: absolute;
+  // position: absolute;
+  // z-index: 1;
   overflow: hidden;
   text-align: center;
   height: 100vh;
@@ -16,22 +17,21 @@
       padding-right: 0;
     }
   }
-  #background {
-    position: absolute;
-    z-index: 0;
+  #bg-design {
+    position: relative;
+    z-index: 1;
     display: block;
     min-height: 50%;
     min-width: 50%;
-    left: 2rem;
-    top: 71vh;
-    box-sizing: border-box;
+    left: 5rem;
+    top: -27vh;
   }
-  #bg-text {
+  .bg-text {
     color: $bg-text-1;
-    ;
     font-size: 285px;
     font-weight: 600;
   }
+
   .main-content {
     overflow: hidden;
     padding-left: 0;
@@ -66,7 +66,9 @@
           font-size: 4rem;
           font-weight: 700;
         }
-        button {
+        .order-now {
+          position: relative;
+          z-index: 2;
           font-size: 0.55rem;
           padding: 0.75rem;
           padding-left: 2.25rem;
@@ -77,7 +79,7 @@
           border: none;
           background-color: $button-color;
         }
-        button:hover {
+        .order-now:hover {          
           cursor: pointer;
         }
       }

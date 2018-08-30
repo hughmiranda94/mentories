@@ -3,9 +3,9 @@
   height: 100vh;
   padding-left: 0;
   padding-right: 0;
-  position: relative;
-  top: 200vh;
-  z-index: 1;
+  // position: relative;
+  // top: 200vh;
+  // z-index: 1;
   .box-row {
     background-image: linear-gradient($bg-color-1, $bg-color-2);
     margin-right: 0;
@@ -94,6 +94,13 @@
                 width: 1.11rem;
                 height: auto;
               }
+            }
+            .read-more:hover {
+              .arrow {
+                transition: transform .2s;
+                transform: translate(0.25rem);
+              }
+              cursor: pointer;
             }
           }
         }

@@ -1,7 +1,4 @@
-  <div class="container-fluid pop-menu">
-  <div id="background">
-    <p id="bg-text">FOOD</p>
-  </div>
+<div class="container-fluid pop-menu">
   <section class="title">
     <h1>Popular Dishes</h1>
     <p>Locally grown plate mustard chopsticks vegetarian custard taste foods sous-chef hummus
@@ -11,5 +8,8 @@
     <div class="scrollitem" *ngFor="let card of popCards | reverse">
       <app-pop-card [card]=card></app-pop-card>
     </div>
+  </div>
+  <div id="bg-food">
+    <p class="bg-text">FOOD</p>
   </div>
 </div>
