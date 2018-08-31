@@ -1,0 +1,474 @@
+@import '_constants.scss';
+
+body {
+  margin: 0;
+  font-family: $font-family, sans-serif;
+  color: $text-font;
+  box-sizing: border-box;
+  background-color: $nav-bg-color;
+
+  nav {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    box-sizing: border-box;
+    background-color: $nav-bg-color;
+    width: 20%;
+    float: left;
+    overflow: hidden;
+
+    .img-container {
+      height: 7vh;
+      width: 100%;
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        height: 33%;
+        width: 100%;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+      }
+
+      img {
+        height: 100%;
+      }
+    }
+
+    .img-container:hover {
+      img {
+        transition: transform 0.2s;
+        transform: scale(1.1);
+      }
+
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.01),  rgba(255, 255, 255, 0.01));
+    }
+
+    .search-container {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 7vh;
+      background-color: rgba(0, 0, 0, 0.10);
+
+      input {
+        height: 100%;
+        width: 85%;
+        border: none;
+        background: none;
+        font-family: $font-family, sans-serif;
+        color: $button-font;
+        font-size: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      img {
+        height: 1.5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+
+      img:hover {
+        transition: transform .1s;
+        transform: scale(1.2);
+      }
+    }
+
+    ::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      font-family: $font-family, sans-serif;
+      color: $button-font;
+      font-size: 1rem;
+      opacity: 1;
+      /* Firefox */
+    }
+
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      font-family: $font-family, sans-serif;
+      color: $button-font;
+      font-size: 1rem;
+    }
+
+    ::-ms-input-placeholder {
+      /* Microsoft Edge */
+      font-family: $font-family, sans-serif;
+      color: $button-font;
+      font-size: 1rem;
+    }
+
+    ul {
+      list-style-type: none;
+
+      li {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        display: block;
+
+        a {
+          color: $button-font;
+          text-decoration: none;
+          font-size: 1rem;
+          display: flex;
+          flex-flow: row wrap;
+          align-items: center;
+          width: 100%;
+
+          img {
+            width: 1.2rem;
+            margin-right: 1rem;
+          }
+        }
+
+        a:hover {
+          transition: transform .1s;
+          transform: translate(0.5rem);
+        }
+      }
+    }
+
+    hr {
+      border: 1px solid rgba(0, 0, 0, 0.10);
+      width: 100%;
+    }
+  }
+
+  main {
+    min-height: 100vh;
+    width: 80%;
+    float: right;
+    background-image: linear-gradient($main-bg-color-1, $main-bg-color-2);
+    box-sizing: border-box;
+
+    header {
+      height: 7vh;
+      background-color: $card-bg-color;
+      display: flex;
+      flex-flow: row wrap;
+
+      .icons {
+        flex-grow: 4;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 1rem;
+        border-right: 1px solid rgba(0, 0, 0, 0.05);
+
+        img {
+          height: 1.75rem;
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+
+        #menu-icon {
+          height: 1.25rem;
+          width: 2rem;
+        }
+      }
+
+      .help-center {
+        flex-grow: 1;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        padding-top: 0;
+        padding-bottom: 0;
+        border-right: 1px solid rgba(0, 0, 0, 0.05);
+
+        a {
+          text-decoration: none;
+        }
+
+        #help-icon {
+          display: flex;
+          flex-flow: row wrap;
+          align-items: center;
+          justify-content: center;
+          height: 2rem;
+          width: 2rem;
+          color: $button-font;
+          background-color: $help-bg;
+          border-radius: 50%;
+          text-align: center;
+        }
+
+        .help-center-info {
+          height: 100%;
+          box-sizing: border-box;
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+          margin-left: 1rem;
+          display: flex;
+          flex-flow: column wrap;
+          justify-content: center;
+
+          .row {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: flex-start;
+            height: 35%;
+
+            img {
+              margin: 0.5rem;
+            }
+
+            #help-text {
+              font-weight: 500;
+            }
+
+            #dropdown-icon {
+              height: 0.5rem;
+              margin-bottom: 0;
+            }
+
+            #online-text {
+              font-size: 0.75rem;
+            }
+
+            #online-icon {
+              display: block;
+              height: 0.33rem;
+              width: 0.33rem;
+              background-color: $button-color-1;
+              border-radius: 50%;
+              margin-right: 0.25rem;
+            }
+          }
+        }
+      }
+
+      .user {
+        flex-grow: 1;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 1rem;
+
+        #user-icon {
+          object-fit: cover;
+          width: 2rem;
+          height: 2rem;
+          border: 2px solid $border-color;
+          border-radius: 50%;
+          margin: 0.5rem;
+        }
+
+        p {
+          font-weight: 500;
+          margin-left: 0.5rem;
+        }
+      }
+    }
+
+    .dashboard {
+      display: block;
+      padding: 1.5rem;
+      padding-top: 0;
+      min-height: 93vh;
+      box-sizing: border-box;
+
+      .upper-container {
+        height: 15vh;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: space-between;
+
+        .title {
+          p {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: 0.5rem;
+          }
+
+          h1 {
+            color: $main-font;
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-top: 0;
+            margin-bottom: 0;
+          }
+        }
+
+        .survey-button-link {
+          text-decoration: none;
+          height: 40%;
+          display: flex;
+          flex-flow: column wrap;
+          justify-content: center;
+
+          button {
+            font-family: $font-family, sans-serif;
+            color: $button-font;
+            background-color: $button-color-1;
+            border: none;
+            height: 100%;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+          }
+
+          button:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .lower-container {
+        height: 85%;
+        width: 100%;
+
+        .grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-auto-rows: minmax(30vh, auto);
+          grid-gap: 1.5rem;
+          height: 100%;
+
+          .card {
+            background-color: $card-bg-color;
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+            padding: 1.5rem;
+
+            h2 {
+              width: 100%;
+              font-weight: 500;
+              color: $title-font;
+              font-size: 1.25rem;
+            }
+
+            h3 {
+              width: 100%;
+              font-weight: 400;
+              color: $main-font;
+              font-size: 1.75rem;
+            }
+
+            strong {
+              width: 100%;
+              font-weight: 500;
+              color: $main-font;
+              font-size: 6rem;
+            }
+
+            p {
+              width: 100%;
+            }
+
+            .important {
+              font-style: none;
+              color: $main-font;
+            }
+
+            .card-button-link {
+              width: 100%;
+              height: 7vh;
+
+              .card-button {
+                font-family: $font-family, sans-serif;
+                font-size: 1.25rem;
+                border: none;
+                color: $button-font;
+                background-color: $button-color-2;
+                width: 100%;
+                height: 100%;
+              }
+
+              button:hover {
+                cursor: pointer;
+                transition: transform .2s;
+                transform: scale(1.05);
+              }
+            }
+          }
+
+          #today-usage {
+            grid-column: 2/4;
+          }
+
+          #my-bill {
+            p {
+              margin-bottom: 5vh;
+            }
+          }
+
+          #challenge {
+            h3 {
+              margin-bottom: 0;
+            }
+
+            p {
+              margin-top: 0;
+            }
+          }
+
+          #outages {
+            p {
+              text-align: center;
+            }
+          }
+
+          #tips {
+            .img-and-tip {
+              display: flex;
+              flex-flow: row wrap;
+              align-items: center;
+              justify-content: space-between;
+              width: 100%;
+
+              h3 {
+                width: auto;
+              }
+            }
+          }
+
+          #co2-emisions {
+            p {
+              margin-top: 1rem;
+              margin-bottom: 0;
+            }
+
+            h3 {
+              font-size: 2rem;
+              margin-top: 0;
+              margin-bottom: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  body {
+    nav {
+      display: none;
+    }
+
+    main {
+      width: 100%;
+    }
+  }
+}
