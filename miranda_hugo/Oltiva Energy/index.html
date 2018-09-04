@@ -11,121 +11,175 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-  <nav>
-    <div class="img-container">
-      <a href="#"><img src="assets/oltiva-logo.png"></a>
-    </div>
-    <div class="search-container">
-      <input type="search" placeholder="Search">
-      <a href="#"><img src="assets/search.png"></a>
-    </div>
-    <ul>
-      <li><a href="#"><img src="assets/nav-icons/dashboard.png"><p>Dashboard</p></a></li>
-      <li><a href="#"><img src="assets/nav-icons/electric.png"><p>Electricity Use</p></a></li>
-      <li><a href="#"><img src="assets/nav-icons/clipboard.png"><p>Energy Efficiency Program</p></a></li>
-      <li><a href="#"><img src="assets/nav-icons/light-bulb.png"><p>Advice</p></a></li>
-      <li><a href="#"><img src="assets/nav-icons/pay-bill.png"><p>Pay Bills</p></a></li>
-      <li><a href="#"><img src="assets/nav-icons/alert.png"><p>Outages</p></a></li>
-      <li><a href="#"><img src="assets/nav-icons/home.png"><p>Connected Home</p></a></li>
-    </ul>
-    <hr>
-    <ul>
-      <li><a href="#"><img src="assets/nav-icons/utilities.png"><p>Utilities</p></a></li>
-      <li><a href="#"><img src="assets/nav-icons/led-bulb.png"><p>Save Energy</p></a></li>
-      <li><a href="#"><img src="assets/nav-icons/i.png"><p>About Us</p></a></li>
-      <li><a href="#"><img src="assets/nav-icons/social.png"><p>Social</p></a></li>
-      <li><a href="#"><img src="assets/nav-icons/account.png"><p>Account</p></a></li>
-      <li><a href="#"><img src="assets/nav-icons/settings.png"><p>Settings</p></a></li>
-      <li><a href="#"><img src="assets/nav-icons/logout.png"><p>Log Out</p></a></li>
-    </ul>
-  </nav>
-  <main>
-    <header>
-      <div class="icons">
-        <a href="#"><img src="assets/menu.png" id="menu-icon"></a>
-        <a href="#"><img src="assets/message.png" id="message-icon"></a>
-        <a href="#"><img src="assets/bell.png" id="bell-icon"></a>
+<body onresize="adjustScreen()">
+  <div class="main-container">
+    <nav id="nav">
+      <div class="img-container">
+        <a href="#"><img src="assets/oltiva-logo.png"></a>
       </div>
-      <div class="help-center">
-        <a href="#" id="help-icon"><span id="help-icon">?</span></a>
-        <div class="help-center-info">
-          <div class="row">
-            <p id="help-text">Help Center</p>
-            <a href="#"><img src="assets/dropdown.png" id="dropdown-icon"></a>
-          </div>
-          <div class="row">
-            <a href="#"><span id="online-icon"></span></a>
-            <p id="online-text">Online</p>
-          </div>
+      <div class="search-container">
+        <input type="search" placeholder="Search">
+        <a href="#"><img src="assets/search.png"></a>
+      </div>
+      <ul>
+        <li><a href="#"><img src="assets/nav-icons/dashboard.png">
+            <p>Dashboard</p>
+          </a></li>
+        <li><a href="#"><img src="assets/nav-icons/electric.png">
+            <p>Electricity Use</p>
+          </a></li>
+        <li><a href="#"><img src="assets/nav-icons/clipboard.png">
+            <p>Energy Efficiency Program</p>
+          </a></li>
+        <li><a href="#"><img src="assets/nav-icons/light-bulb.png">
+            <p>Advice</p>
+          </a></li>
+        <li><a href="#"><img src="assets/nav-icons/pay-bill.png">
+            <p>Pay Bills</p>
+          </a></li>
+        <li><a href="#"><img src="assets/nav-icons/alert.png">
+            <p>Outages</p>
+          </a></li>
+        <li><a href="#"><img src="assets/nav-icons/home.png">
+            <p>Connected Home</p>
+          </a></li>
+      </ul>
+      <hr>
+      <ul>
+        <li><a href="#"><img src="assets/nav-icons/utilities.png">
+            <p>Utilities</p>
+          </a></li>
+        <li><a href="#"><img src="assets/nav-icons/led-bulb.png">
+            <p>Save Energy</p>
+          </a></li>
+        <li><a href="#"><img src="assets/nav-icons/i.png">
+            <p>About Us</p>
+          </a></li>
+        <li><a href="#"><img src="assets/nav-icons/social.png">
+            <p>Social</p>
+          </a></li>
+        <li><a href="#"><img src="assets/nav-icons/account.png">
+            <p>Account</p>
+          </a></li>
+        <li><a href="#"><img src="assets/nav-icons/settings.png">
+            <p>Settings</p>
+          </a></li>
+        <li><a href="#"><img src="assets/nav-icons/door.png">
+            <p>Log Out</p>
+          </a></li>
+      </ul>
+    </nav>
+    <main id="main">
+      <header>
+        <div class="icons">
+          <a href="#" id="menu-icon-link" onclick="displayNav()"><img src="assets/menu.png" id="menu-icon"></a>
+          <a href="#"><img src="assets/message.png" id="message-icon"></a>
+          <a href="#"><img src="assets/bell.png" id="bell-icon"></a>
         </div>
-      </div>
-      <div class="user">
-        <a href="#"><img src="assets/rick-sharp.PNG" id="user-icon"></a>
-        <p>Rick Sharp</p>
-      </div>
-    </header>
-    <section class="dashboard">
-      <div class="upper-container">
-        <div class="title">
-          <p>Oltiva Energy</p>
-          <h1>Dashboard</h1>
-        </div>
-        <a href="#" class="survey-button-link"><button>Take Energy Efficency Survey</button></a>
-      </div>
-      <div class="lower-container">
-        <div class="grid">
-          <div class="card" id="period-usage">
-            <h2>Energy Use This Period</h2>
-          </div>
-          <div class="card" id="today-usage">
-            <h2>Today's Energy Use</h2>
-          </div>
-          <div class="card" id="my-bill">
-            <h2>My Bill</h2>
-            <strong>&pound;308.8</strong>
-            <p>to pay in 9 days</p>
-            <a href="#" class="card-button-link"><button class="card-button">Check my bill</button></a>
-          </div>
-          <div class="card" id="challenge">
-            <h2>Challenge</h2>
-            <h3>Bright Light</h3>
-            <p>Replace all the light bulbs in your house with <span class="important">energy efficient</span> ones.</p>
-            <a href="#" class="card-button-link"><button class="card-button">Start the challenge</button></a>
-          </div>
-          <div class="card" id="outages">
-            <h2>Outages</h2>
-            <img src="...">
-            <p>No outages in your area.</p>
-            <a href="#" class="card-button-link"><button class="card-button">Report new outage</button></a>
-          </div>
-          <div class="card" id="tips">
-            <h2>Tips</h2>
-            <div class="img-and-tip">
-              <img src="...">
-              <h3>Turn down your thermostat</h3>
+        <div class="help-center">
+          <a href="#" id="help-icon"><span id="help-icon">?</span></a>
+          <div class="help-center-info">
+            <div class="row">
+              <p id="help-text">Help Center</p>
+              <a href="#"><img src="assets/dropdown.png" id="dropdown-icon"></a>
             </div>
-            <p>Reducing it by 1°C could <span class="important">cut 10% off your heating bill</span> - it usually saves
-              around &pound;60 per year</p>
-            <a href="#" class="card-button-link"><button class="card-button">View more tips</button></a>
-          </div>
-          <div class="card" id="neighborhood">
-            <h2>Neighborhood</h2>
-            <p>You are using <span class="important">22% more</span> than the average</p>
-            <a href="#" class="card-button-link"><button class="card-button">Review energy use</button></a>
-          </div>
-          <div class="card" id="co2-emisions">
-            <h2>Co2 Emisions</h2>            
-            <p>Your use</p>
-            <h3>1377 pounds of Co2</h3>      
-            <p>equals</p>
-            <h3>23.5 tree seedlings grown for 10 years.</h3>
+            <div class="row">
+              <a href="#"><span id="online-icon"></span></a>
+              <p id="online-text">Online</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
-  <script src="" async defer></script>
+        <div class="user">
+          <a href="#"><img src="assets/rick-sharp.PNG" id="user-icon"></a>
+          <p>Rick Sharp</p>
+        </div>
+      </header>
+      <section class="dashboard">
+        <div class="upper-container">
+          <div class="title">
+            <p>Oltiva Energy</p>
+            <h1>Dashboard</h1>
+          </div>
+          <a href="#" class="survey-button-link"><button>Take Energy Efficency Survey</button></a>
+        </div>
+        <div class="lower-container">
+          <div class="grid">
+            <div class="card" id="period-usage">
+              <div class="title-with-dates">
+                <h2>Energy Use This Period</h2>
+                <p>Since July 10</p>
+              </div>
+              <img src="assets/period-energy-graph.png" class="graph">
+              <hr>
+              <div class="period-info">
+                <div class="budget-analysis">
+                  <h3>58%</h3>
+                  <p><img src="assets/nav-icons/arrow.png">Above the budget</p>
+                </div>
+                <div class="period-cost">
+                  <h3>&pound;309</h3>
+                  <p><img src="assets/nav-icons/coins.png">Cost this period</p>
+                </div>
+              </div>
+            </div>
+            <div class="card" id="today-usage">
+              <div class="title-with-dates">
+                <h2>Today's Energy Use</h2>
+                <p>July 21</p>
+              </div>
+              <img src="assets/today-energy-graph.png" class="graph">
+            </div>
+            <div class="card" id="my-bill">
+              <h2>My Bill</h2>
+              <strong>&pound;308.8</strong>
+              <p>to pay in 9 days</p>
+              <a href="#" class="card-button-link"><button class="card-button">Check my bill</button></a>
+            </div>
+            <div class="card" id="challenge">
+              <h2>Challenge</h2>
+              <h3>Bright Light</h3>
+              <p>Replace all the light bulbs in your house with <span class="important">energy efficient</span> ones.</p>
+              <a href="#" class="card-button-link"><button class="card-button">Start the challenge</button></a>
+            </div>
+            <div class="card" id="outages">
+              <h2>Outages</h2>
+              <div class="area-outages">
+                <img src="assets/alert-dark.png">
+                <p>No outages in your area.</p>
+              </div>
+              <a href="#" class="card-button-link"><button class="card-button">Report new outage</button></a>
+            </div>
+            <div class="card" id="tips">
+              <h2>Tips</h2>
+              <div class="img-and-tip">
+                <img src="assets/thermostats.png">
+                <h3>Turn down your thermostat</h3>
+              </div>
+              <p>Reducing it by 1°C could <span class="important">cut 10% off your heating bill</span> - it usually
+                saves
+                around &pound;60 per year</p>
+              <a href="#" class="card-button-link"><button class="card-button">View more tips</button></a>
+            </div>
+            <div class="card" id="neighborhood">
+              <h2>Neighborhood</h2>              
+              <img src="assets/neighborhood-graph.png">
+              <p>You are using <span class="important">22% more</span> than the average</p>
+              <a href="#" class="card-button-link"><button class="card-button">Review energy use</button></a>
+            </div>
+            <div class="card" id="co2-emisions">
+              <h2>Co2 Emisions</h2>
+              <p>Your use</p>
+              <h3>1377 pounds of Co2</h3>
+              <p>equals</p>
+              <h3>23.5 tree seedlings grown for 10 years.</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="main.js"></script>
+
 </body>
 
 </html>
