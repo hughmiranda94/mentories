@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="css/detail.css">
+</head>
+
+<body onresize="adjustDetailBody()">
+  <div class="body-container">
+    <header id="detail-header">
+      <ul>
+        <li><a href="#">
+            About Us
+          </a></li>
+        <li><a href="#">
+            Contact
+          </a></li>
+        <li><a href="#">
+            Social
+          </a></li>
+      </ul>
+      <div class="user">
+        <a href="#"><img src="assets/rick-sharp.PNG" id="user-icon"></a>
+        <p>Rick Sharp</p>
+      </div>
+    </header>
+    <nav>
+      <div class="user">
+        <a href="#"><img src="assets/rick-sharp.PNG" id="user-icon"></a>
+      </div>
+      <a href="index.html" class="logo-link"><img class="logo" src="assets/oltiva-energy-logo.png"></a>
+      <a href="#" onclick="detailMenuButton()" class="menu-link">
+          <img src="assets/menu-white.png" id="menu-icon">
+        </a>
+      <ul id="nav-ul">
+        <li><a href="#">
+            Home
+          </a></li>
+        <li><a href="#">
+            Utilities
+          </a></li>
+        <li><a href="#">
+            Save Energy
+          </a></li>
+          <li><a href="#" id="help-center-nav">
+              Help Center
+            </a></li>
+        <li><a href="#">
+            <img src="assets/search.png">
+          </a></li>
+      </ul>
+      
+    </nav>
+    <main>
+      <div class="upper-container">
+        <div class="title-container">
+          <a href="#">Home</a> > <a href="#">Utilities</a> > Eco-friendly Base Plan
+          <h1>Eco-friendly Base Plan</h1>
+        </div>
+        <div class="help-center">
+          <a href="#" id="help-icon"><span id="help-icon">?</span></a>
+          <div class="help-center-info">
+            <div class="row">
+              <p id="help-text">Help Center</p>
+              <a href="#"><img src="assets/dropdown.png" id="dropdown-icon"></a>
+            </div>
+            <div class="row">
+              <a href="#"><span id="online-icon"></span></a>
+              <p id="online-text">Online</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card" id="logo">
+          <a href="index.html"><img src="assets/oltiva-energy-logo-alt.png"></a>
+        </div>
+        <section class="card" id="plan-stats">
+          <div class="stat" id="monthly-cost">
+            <h2>Cost Per Month (&pound;)</h2>
+            <strong>&pound;200</strong>
+          </div>
+          <div class="stat" id="utilities">
+            <h2>Utilities</h2>
+            <ul>
+              <li>Electricity</li>
+              <li>Natural Gas</li>
+            </ul>
+          </div>
+          <div class="stat" id="plan">
+            <h2>Plan</h2>
+            <ul>
+              <li>Pay-by-use</li>
+            </ul>
+          </div>
+          <div class="stat" id="popularity">
+            <h2>Popularity</h2>
+            <div class="pop-rating">
+              <img src="assets/star-green.png">
+              <img src="assets/star-green.png">
+              <img src="assets/star-green.png">
+              <img src="assets/star-green.png">
+              <img src="assets/star-green.png">
+            </div>
+          </div>
+          <div class="stat" id="ecofriendly">
+            <h2>Eco-friendly</h2>
+            <div class="eco-rating">
+              <img src="assets/leaf-green.png">
+              <img src="assets/leaf-green.png">
+              <img src="assets/leaf-green.png">
+              <img src="assets/leaf-green.png">
+              <img src="assets/leaf-gray.png">
+            </div>
+          </div>
+          <div class="stat" id="sign-up">
+            <button>Sign Up</button>
+          </div>
+        </section>
+        <article class="card" id="article">
+          <h2>Summary</h2>
+          <p>We know that keeping your household energy costs down is
+            important, which is why we've developed Oltiva Energy's
+            Eco-friendly Base Plan. It gives you a guaranteed discount off
+            Oltiva's energy usage charges for 12 months and a 1% discount off
+            our usage charges when you pay by direct debit. You get these
+            discounts for choosing renewable energy sources.
+          </p>
+          <p> Discounts are available on both natural gas and electricity
+            So to make a real difference in your household energy bills,
+            sign up to <span id="highlight">Oltiva's Energy's Eco-friendly
+              Base Plan</span> today.
+          </p>
+          <h2>Green Energy</h2>
+          <p>As one of United Kingdom's leading renewable energy suppliers,
+            Oltiva Energy offers a suite of Green Energy options called Oltiva
+            Energy Green Choice &trade; that will enable you, our customer, to
+            support cleaner energy like solar, wind and hydro.
+          </p>
+          <h2>What We Offer</h2>
+          <ul>
+            <li>24-month Energy Plan</li>
+            <li>A guaranteed 9% off Oltiva's electricity usage charges for 12 months</li>
+            <li>1% discount off Oltiva's Energy's usage charges</li>
+            <li>Automatic online account setup and billing enrollment</li>
+            <li>No cancellation fee</li>
+          </ul>
+        </article>
+        <section class="card" id="special-offers">
+          <h2>Special Offers</h2>
+          <div class="offer-card-grid">
+            <div class="offer-card" id="thermostat">
+              <div class="img-container">
+                <img class="sale-icon" src="assets/sale.png">
+                <a href="#" class="img-link">
+                  <img class="offer-img" src="assets/nest-thermostat.jpg">
+                </a>
+              </div>
+
+              <a href="#">
+                <p><strong>Nest</strong> Learning Thermostat 3rd Generation</p>
+              </a>
+              <div class="offer-details">
+                <div class="stars">
+                  <img src="assets/star-gold.png">
+                  <img src="assets/star-gold.png">
+                  <img src="assets/star-gold.png">
+                  <img src="assets/star-gold.png">
+                </div>
+                <div class="price">
+                  <p>&pound;170</p>
+                </div>
+              </div>
+            </div>
+            <div class="offer-card" id="efficiency">
+              <div class="img-container">
+                <a href="#" class="img-link">
+                  <img class="offer-img" src="assets/oltiva-app.png">
+                </a>
+              </div>
+              <a href="#">
+                <p><strong>Oltiva</strong> Energy Efficiency Program</p>
+              </a>
+              <div class="offer-details">
+                <div class="stars">
+                  <img src="assets/star-gold.png">
+                  <img src="assets/star-gold.png">
+                  <img src="assets/star-gold.png">
+                  <img src="assets/star-gold-empty.png">
+                </div>
+                <div class="price">
+                  <p>Free</p>
+                </div>
+              </div>
+            </div>
+            <div class="offer-card" id="home-system">
+              <div class="img-container">
+                <a href="#" class="img-link">
+                  <img class="offer-img" src="assets/connected-home.jpg">
+                </a>
+              </div>
+              <a href="#">
+                <p><strong>Oltiva</strong> Connected Home System</p>
+              </a>
+              <div class="offer-details">
+                <div class="stars">
+                  <img src="assets/star-gold.png">
+                  <img src="assets/star-gold.png">
+                  <img src="assets/star-gold.png">
+                  <img src="assets/star-gold.png">
+                </div>
+                <div class="price">
+                  <p>&pound;130</p>
+                </div>
+              </div>
+            </div>
+            <div class="offer-card" id="co2alarm">
+              <div class="img-container">
+                <img class="sale-icon" src="assets/sale.png">
+                <a href="#" class="img-link">
+                  <img class="offer-img" src="assets/kidde-co2alarm.jpg">
+                </a>
+              </div>
+              <a href="#">
+                <p><strong>Kidde</strong> Plug-In Carbon Monoxide Alarm</p>
+              </a>
+              <div class="offer-details">
+                <div class="stars">
+                  <img src="assets/star-gold.png">
+                  <img src="assets/star-gold.png">
+                  <img src="assets/star-gold.png">
+                  <img src="assets/star-gold-empty.png">
+                </div>
+                <div class="price">
+                  <p>&pound;25</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="view-more" onclick="viewButton()" id="view-more">
+            View More
+          </button>
+        </section>
+    </main>
+    <footer>
+      <p>2015 Oltiva Energy. All rights reserved</p>
+      <div class="social-networks">
+        <p>Folow us</p>
+        <a href="#"><img src="assets/Facebook.png"></a>
+        <a href="#"><img src="assets/Twitter.png"></a>
+        <a href="#"><img src="assets/Pinterest.png"></a>
+        <a href="#"><img src="assets/Instagram.png"></a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

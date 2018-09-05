@@ -33,7 +33,7 @@ body {
         align-items: center;
         justify-content: center; }
         body .main-container nav .img-container a {
-          height: 33%;
+          height: 50%;
           width: 100%;
           display: flex;
           flex-flow: column wrap;
