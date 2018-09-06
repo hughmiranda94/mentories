@@ -2,7 +2,6 @@
 
 let nav = document.getElementById("nav");
 let main = document.getElementById("main");
-let navPosition;
 let mobileWidthMatch = window.matchMedia("(max-width: 900px)");
 let navToggle;
 
@@ -10,7 +9,7 @@ mobileWidthMatch.matches ? navToggle = false : navToggle = true;
 
 function adjustScreen() {
   mobileWidthMatch = window.matchMedia("(max-width: 900px)");
-  if (mobileWidthMatch.matches) {    
+  if (mobileWidthMatch.matches) {
     navToggle = true;
     displayNav();
   } else {
@@ -48,51 +47,70 @@ function displayNav() {
 
 function openNavDesktop() {
   console.log('Opening Nav on Desktop');
-  main.style.width = '80%';
-  main.style.transform = 'translateX(100%)';
-  nav.style.height = 'auto';
-  setTimeout(() => {
-    nav.style.width = '20%';
-    nav.style.transform = 'translateX(0%)';
-    nav.style.position = 'static';
-    main.style.transform = 'translateX(0%)';
-  }, 300);
+
+  
+  nav.style.height = window.getComputedStyle(main, null).getPropertyValue('height');
+
+  main.classList.toggle('main-openNavMobile', false);
+  main.classList.toggle('main-closeNavMobile', false);
+  main.classList.toggle('main-openNavDesktop', true);
+  main.classList.toggle('main-closeNavDesktop', false);
+
+  nav.classList.toggle('nav-openNavMobile', false);
+  nav.classList.toggle('nav-closeNavMobile', false);
+  nav.classList.toggle('nav-openNavDesktop', true);
+  nav.classList.toggle('nav-closeNavDesktop', false);
+
   navToggle = true;
 }
 
 function openNavMobile() {
   console.log('Opening Nav on Mobile');
-  main.style.width = '100%';
-  main.style.transform = 'translateX(80%)';
-  nav.style.position = 'absolute';
-  nav.style.width = '80%';
-  nav.style.transform = 'translateX(0%)';
+
   nav.style.height = window.getComputedStyle(main, null).getPropertyValue('height');
-  console.log(window.getComputedStyle(main, null).getPropertyValue('height'));
+
+  main.classList.toggle('main-openNavMobile', true);
+  main.classList.toggle('main-closeNavMobile', false);
+  main.classList.toggle('main-openNavDesktop', false);
+  main.classList.toggle('main-closeNavDesktop', false);
+
+  nav.classList.toggle('nav-openNavMobile', true);
+  nav.classList.toggle('nav-closeNavMobile', false);
+  nav.classList.toggle('nav-openNavDesktop', false);
+  nav.classList.toggle('nav-closeNavDesktop', false);
 
   navToggle = true;
 }
 
 function closeNavDesktop() {
   console.log('Closing Nav on Desktop');
-  setTimeout(() => {
-    nav.style.width = '0%';
-    main.style.width = '100%';
-    main.style.transform = 'translateX(0%)';
-    nav.style.position = 'static';
-  }, 300);
-  nav.style.transform = 'translateX(-100%)';
-  main.style.transform = 'translateX(-20%)';
+
+  main.classList.toggle('main-openNavMobile', false);
+  main.classList.toggle('main-closeNavMobile', false);
+  main.classList.toggle('main-openNavDesktop', false);
+  main.classList.toggle('main-closeNavDesktop', true);
+
+  nav.classList.toggle('nav-openNavMobile', false);
+  nav.classList.toggle('nav-closeNavMobile', false);
+  nav.classList.toggle('nav-openNavDesktop', false);
+  nav.classList.toggle('nav-closeNavDesktop', true);
+
   navToggle = false;
 }
 
 function closeNavMobile() {
   console.log('Closing Nav on Mobile');
-  main.style.width = '100%';
-  main.style.transform = 'translateX(0%)';
-  nav.style.position = 'absolute';
-  nav.style.width = '80%';
-  nav.style.transform = 'translateX(-100%)';
+
+  main.classList.toggle('main-closeNavMobile', true);
+  main.classList.toggle('main-openNavMobile', false);
+  main.classList.toggle('main-openNavDesktop', false);
+  main.classList.toggle('main-closeNavDesktop', false);
+
+  nav.classList.toggle('nav-closeNavMobile', true);
+  nav.classList.toggle('nav-openNavMobile', false);
+  nav.classList.toggle('nav-openNavDesktop', false);
+  nav.classList.toggle('nav-closeNavDesktop', false);
+
   navToggle = false;
 }
 
@@ -103,13 +121,13 @@ let efficiency = document.getElementById("efficiency");
 let homeSystem = document.getElementById("home-system");
 let co2alarm = document.getElementById("co2alarm");
 let viewMoreButton = document.getElementById("view-more");
+let detailHeader = document.getElementById("detail-header");
+let helpCenterNav = document.getElementById("help-center-nav");
+let navUL = document.getElementById("nav-ul");
 let windowWidthMatch1200;
 let windowWidthMatch900;
 let windowWidthMatch750;
 let windowWidthMatch600;
-let detailHeader = document.getElementById("detail-header");
-let navUL = document.getElementById("nav-ul");
-let helpCenterNav = document.getElementById("help-center-nav");
 let headerToggle;
 let navULToggle;
 
@@ -173,10 +191,10 @@ window.matchMedia("(max-width: 750px)").matches ? navULToggle = false : navULTog
 
 function detailMenuButton() {
 
-  if(window.matchMedia("(max-width: 600px)").matches){
+  if (window.matchMedia("(max-width: 600px)").matches) {
     headerToggle ? hideHeader() : showHeader();
-  }   
-  navULToggle ? hideNavUL() : showNavUL(); 
+  }
+  navULToggle ? hideNavUL() : showNavUL();
 
 }
 
@@ -193,18 +211,17 @@ function hideHeader() {
 }
 
 function showNavUL() {
-    navUL.style.display = 'flex';
-    if(window.matchMedia("(max-width: 750px)").matches){      
-        helpCenterNav.style.display = 'block';
-    }
-    else{
-      helpCenterNav.style.display = 'none';
-    }
-    navULToggle = true;
+  navUL.style.display = 'flex';
+  if (window.matchMedia("(max-width: 750px)").matches) {
+    helpCenterNav.style.display = 'block';
+  } else {
+    helpCenterNav.style.display = 'none';
+  }
+  navULToggle = true;
 }
 
 function hideNavUL() {
-    navUL.style.display = 'none';
-    helpCenterNav.style.display = 'none';
-    navULToggle = false;
+  navUL.style.display = 'none';
+  helpCenterNav.style.display = 'none';
+  navULToggle = false;
 }

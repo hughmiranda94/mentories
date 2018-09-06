@@ -1,5 +1,9 @@
 @import '_constants.scss';
 
+html{
+  font-size: $rem-font-size;
+}
+
 body {
   margin: 0;
   font-family: $font-family, sans-serif;
@@ -14,10 +18,6 @@ body {
     overflow: hidden;
 
     nav {
-      // display: flex;
-      // flex-flow: column wrap;
-      // align-items: flex-start;
-      // justify-content: flex-start;
       @include flex(column wrap, flex-start, flex-start);
       margin: 0;
       padding: 0;
@@ -26,7 +26,7 @@ body {
       background-color: $nav-bg-color;
       float: left;
       overflow: hidden;
-      transition: transform 0.3s, position 0.3s;
+      transition: all 0.3s;
       width: 20%;
       position: static;
 
@@ -67,10 +67,6 @@ body {
       }
 
       .search-container {
-        // display: flex;
-        // flex-flow: row wrap;
-        // align-items: center;
-        // justify-content: space-between;
         @include flex(row wrap, center, space-between);
         width: 100%;
         height: 7vh;
@@ -89,12 +85,12 @@ body {
           padding-right: 1rem;
         }
 
+        input:focus{
+          outline: none;
+        }
+
         a {
           width: 15%;
-          // display: flex;
-          // flex-flow: column wrap;
-          // align-items: center;
-          // justify-content: center;
           @include flex(column wrap, center, center);
 
           img {
@@ -141,9 +137,6 @@ body {
             color: $button-font;
             text-decoration: none;
             font-size: 1rem;
-            // display: flex;
-            // flex-flow: row nowrap;
-            // align-items: center;
             @include flex(row nowrap, center, flex-start);
             width: 100%;
             transition: transform .2s;
@@ -171,13 +164,23 @@ body {
       }
     }
 
+    .nav-openNavDesktop {
+      width: 20%;
+      height: auto;
+      position: static;
+    }
+    .nav-closeNavDesktop {
+      width: 0%;
+      position: static;
+    }
+
     main {
       height: 100%;
       width: 80%;
       float: right;
       background-image: linear-gradient($main-bg-color-1, $main-bg-color-2);
       box-sizing: border-box;
-      transition: position 0.3s, width 0.3s, transform 0.3s;
+      transition: all 0.3s;
 
       header {
         height: 7vh;
@@ -188,10 +191,6 @@ body {
 
         .icons {
           flex-grow: 4;
-          // display: flex;
-          // flex-flow: row wrap;
-          // align-items: center;
-          // justify-content: flex-start;
           @include flex(row wrap, center, flex-start);
           padding: 1rem;
           border-right: 1px solid rgba(0, 0, 0, 0.05);
@@ -679,7 +678,7 @@ body {
                   }
 
                   h3 {
-                    color: $button-color-2;
+                    color: $cost-color;
                   }
                 }
               }
@@ -771,6 +770,16 @@ body {
         }
       }
     }
+
+    .main-openNavDesktop {
+      width: 80%;
+      transform: translateX(0%);
+    }
+
+    .main-closeNavDesktop {
+      width: 100%;
+      transform: translateX(0%);
+    }
   }
 }
 
@@ -858,11 +867,20 @@ body {
 @media only screen and (max-width: 900px) {
   body {
     .main-container {
-      nav {
+      .nav-closeNavMobile {
         position: absolute;
         height: auto;
+        width: 80%;
         z-index: 1;
         transform: translateX(-100%);
+      }
+
+      .nav-openNavMobile {
+        position: absolute;
+        height: auto;
+        width: 80%;
+        z-index: 1;
+        transform: translateX(0%);      
       }
 
       main {
@@ -940,6 +958,16 @@ body {
             }
           }
         }
+      }
+
+      .main-openNavMobile {
+        width: 100%;
+        transform: translateX(80%);
+      }
+  
+      .main-closeNavMobile {
+        width: 100%;
+        transform: translateX(0%);  
       }
     }
   }
