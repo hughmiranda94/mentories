@@ -6,11 +6,11 @@ let navPosition;
 let mobileWidthMatch = window.matchMedia("(max-width: 900px)");
 let navToggle;
 
-mobileWidthMatch ? navToggle = false : navToggle = true;
+mobileWidthMatch.matches ? navToggle = false : navToggle = true;
 
 function adjustScreen() {
   mobileWidthMatch = window.matchMedia("(max-width: 900px)");
-  if (mobileWidthMatch.matches) {
+  if (mobileWidthMatch.matches) {    
     navToggle = true;
     displayNav();
   } else {

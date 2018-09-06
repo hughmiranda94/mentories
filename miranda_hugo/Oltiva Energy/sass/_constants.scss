@@ -28,3 +28,10 @@ $link-color: $third-color;
 $border-color: $first-color;
 $second-border-color: $secondary-color;
 $price-font: $first-color;
+
+@mixin flex($flow, $align, $justify){
+  display: flex;
+  flex-flow: $flow;
+  align-items: $align;
+  justify-content: $justify;
+}
