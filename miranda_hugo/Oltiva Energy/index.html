@@ -12,10 +12,12 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body onresize="adjustScreen()">
-  <div class="main-container">
+<!-- adjustIndexBody() either displays or hides nav bar depending on the body's width-->
+<!-- this is due to the indexMenuButton() function on the menu icon -->
+<body onresize="adjustIndexBody()">
+  <div class="body-container">
     <nav id="nav">
-      <div class="img-container">
+      <div class="logo-container">
         <a href="#"><img src="assets/oltiva-energy-logo.png"></a>
       </div>
       <div class="search-container">
@@ -73,7 +75,8 @@
     <main id="main">
       <header>
         <div class="icons">
-          <a href="#" id="menu-icon-link" onclick="displayNav()"><img src="assets/menu.png" id="menu-icon"></a>
+          <!-- indexMenuButton() toggles the nav bar display to none or shown-->
+          <a href="#" id="menu-icon-link" onclick="indexMenuButton()"><img src="assets/menu.png" id="menu-icon"></a>
           <a href="#"><img src="assets/message.png" id="message-icon"></a>
           <a href="#"><img src="assets/bell.png" id="bell-icon"></a>
         </div>
@@ -96,14 +99,14 @@
         </div>
       </header>
       <section class="dashboard">
-        <div class="upper-container">
+        <div class="title-container">
           <div class="title">
             <p>Oltiva Energy</p>
             <h1>Dashboard</h1>
           </div>
           <a href="#" class="survey-button-link"><button>Take Energy Efficency Survey</button></a>
         </div>
-        <div class="lower-container">
+        <div class="grid-container">
           <div class="grid">
             <div class="card" id="period-usage">
               <div class="title-with-dates">
@@ -162,7 +165,7 @@
               <a href="#" class="card-button-link"><button class="card-button">View more tips</button></a>
             </div>
             <div class="card" id="neighborhood">
-              <h2>Neighborhood</h2>              
+              <h2>Neighborhood</h2>
               <img src="assets/neighborhood-graph.png">
               <p>You are using <span class="important">22% more</span> than the average.</p>
               <a href="#" class="card-button-link"><button class="card-button">Review energy use</button></a>
@@ -179,6 +182,7 @@
       </section>
     </main>
   </div>
+
   <script src="main.js"></script>
 
 </body>

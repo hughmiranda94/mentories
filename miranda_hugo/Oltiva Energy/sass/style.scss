@@ -10,7 +10,7 @@ body {
   color: $text-font;
   box-sizing: border-box;
 
-  .main-container {
+  .body-container {
     height: 100%;
     width: 100%;
     display: flex;
@@ -30,24 +30,16 @@ body {
       width: 20%;
       position: static;
 
-      .img-container {
+      .logo-container {
         height: 7vh;
         min-height: 4rem;
         width: 100%;
-        // display: flex;
-        // flex-flow: column wrap;
-        // align-items: center;
-        // justify-content: center;
         @include flex(column wrap, center, center);
         transition: background-image 0.3s;
 
         a {
           height: 50%;
           width: 100%;
-          // display: flex;
-          // flex-flow: column wrap;
-          // align-items: center;
-          // justify-content: center;
           @include flex(column wrap, center, center);
         }
 
@@ -57,7 +49,7 @@ body {
         }
       }
 
-      .img-container:hover {
+      .logo-container:hover {
         img {
           transform: scale(1.1);
         }
@@ -219,8 +211,7 @@ body {
           }
         }
 
-        #menu-icon:hover {
-          // transform: scale(1.1);          
+        #menu-icon:hover {      
           -webkit-animation: menu 1s;
           -webkit-animation-iteration-count: infinite;
           animation: menu 1s;
@@ -243,136 +234,84 @@ body {
 
         /* Standard */
         @keyframes bell {
-          0% {
-            transform: rotateZ(0deg);
-          }
+          0% { transform: rotateZ(0deg); }
 
-          25% {
-            transform: rotateZ(20deg);
-          }
+          25% { transform: rotateZ(20deg); }
 
-          40% {
-            transform: rotateZ(-20deg);
-          }
+          40% { transform: rotateZ(-20deg); }
 
-          60% {
-            transform: rotateZ(20deg);
-          }
+          60% { transform: rotateZ(20deg); }
 
-          75% {
-            transform: rotateZ(-20deg);
-          }
+          75% { transform: rotateZ(-20deg); }
 
-          100% {
-            transform: rotateZ(0deg);
-          }
-        }
-
-        @keyframes message {
-          0% {
-            transform: translateY(0);
-          }
-
-          50% {
-            transform: translateY(-0.50rem);
-          }
-
-          60% {
-            transform: translateY(0.50rem);
-          }
-
-          100% {
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes menu {
-          0% {
-            transform: scale(1.0);
-          }
-
-          30% {
-            transform: scale(1.3);
-          }
-
-          40% {
-            transform: scale(1.0);
-          }
-
-          50% {
-            transform: scale(1.3);
-          }
-
-          100% {
-            transform: scale(1.0);
-          }
+          100% { transform: rotateZ(0deg); }
         }
 
         /* Chrome, Safari, Opera */
         @-webkit-keyframes bell {
-          0% {
-            transform: rotateZ(0deg);
-          }
+          0% { transform: rotateZ(0deg); }
 
-          33% {
-            transform: rotateZ(20deg);
-          }
+          25% { transform: rotateZ(20deg); }
 
-          66% {
-            transform: rotateZ(-20deg);
-          }
+          40% { transform: rotateZ(-20deg); }
 
-          100% {
-            transform: rotateZ(0deg);
-          }
+          60% { transform: rotateZ(20deg); }
+
+          75% { transform: rotateZ(-20deg); }
+
+          100% { transform: rotateZ(0deg); }
         }
 
+        /* Standard */
+        @keyframes message {
+          0% { transform: translateY(0); }
+
+          50% { transform: translateY(-0.50rem); }
+
+          60% { transform: translateY(0.50rem); }
+
+          100% { transform: translateY(0); }
+        }
+
+         /* Chrome, Safari, Opera */
         @-webkit-keyframes message {
-          0% {
-            transform: translateY(0);
-          }
+          0% { transform: translateY(0); }
 
-          50% {
-            transform: translateY(-0.50rem);
-          }
+          50% { transform: translateY(-0.50rem); }
 
-          60% {
-            transform: translateY(0.25rem);
-          }
+          60% { transform: translateY(0.50rem); }
 
-          100% {
-            transform: translateY(0);
-          }
+          100% { transform: translateY(0); }
         }
 
+        /* Standard */
+        @keyframes menu {
+          0% { transform: scale(1.0); }
+
+          30% { transform: scale(1.3); }
+
+          40% { transform: scale(1.0); }
+
+          50% { transform: scale(1.3); }
+
+          100% { transform: scale(1.0); }
+        }
+
+        /* Chrome, Safari, Opera */
         @-webkit-keyframes menu {
-          0% {
-            transform: scale(1.0);
-          }
+          0% { transform: scale(1.0); }
 
-          30% {
-            transform: scale(1.3);
-          }
+          30% { transform: scale(1.3); }
 
-          40% {
-            transform: scale(1.0);
-          }
+          40% { transform: scale(1.0); }
 
-          50% {
-            transform: scale(1.3);
-          }
+          50% { transform: scale(1.3); }
 
-          100% {
-            transform: scale(1.0);
-          }
+          100% { transform: scale(1.0); }
         }
 
         .help-center {
           flex-grow: 1;
-          // display: flex;
-          // flex-flow: row wrap;
-          // align-items: center;
-          // justify-content: center;
           @include flex(row wrap, center, center);
           padding: 1rem;
           padding-top: 0;
@@ -384,10 +323,6 @@ body {
           }
 
           #help-icon {
-            // display: flex;
-            // flex-flow: row wrap;
-            // align-items: center;
-            // justify-content: center;
             @include flex(row wrap, center, center);
             height: 2rem;
             width: 2rem;
@@ -403,16 +338,9 @@ body {
             padding-top: 0.5rem;
             padding-bottom: 0.5rem;
             margin-left: 1rem;
-            // display: flex;
-            // flex-flow: column wrap;
-            // justify-content: center;
             @include flex(column wrap, flex-start, center);
 
             .row {
-              // display: flex;
-              // flex-flow: row wrap;
-              // align-items: center;
-              // justify-content: flex-start;
               @include flex(row wrap, center, flex-start);
               height: 35%;
 
@@ -438,7 +366,7 @@ body {
                 display: block;
                 height: 0.33rem;
                 width: 0.33rem;
-                background-color: $button-color-1;
+                background-color: $button-bg-color-1;
                 border-radius: 50%;
                 margin-right: 0.25rem;
               }
@@ -447,6 +375,7 @@ body {
         }
 
         .help-center:hover {
+
           img {
             transform: translateY(0.25rem);
           }
@@ -454,10 +383,6 @@ body {
 
         .user {
           flex-grow: 1;
-          // display: flex;
-          // flex-flow: row wrap;
-          // align-items: center;
-          // justify-content: flex-start;
           @include flex(row wrap, center, flex-start);
           padding-left: 1rem;
           padding-right: 1rem;
@@ -466,9 +391,8 @@ body {
             object-fit: cover;
             width: 3rem;
             height: 3rem;
-            border: 2px solid $border-color;
+            border: 2px solid $border-color-1;
             border-radius: 50%;
-            // margin: 0.5rem;
           }
 
           p {
@@ -485,16 +409,13 @@ body {
         height: 100%;
         box-sizing: border-box;
 
-        .upper-container {
+        .title-container {
           height: 15vh;
           min-height: 8rem;
-          // display: flex;
-          // flex-flow: row wrap;
-          // align-items: center;
-          // justify-content: space-between;
           @include flex(row wrap, center, space-between);
 
           .title {
+            
             p {
               font-size: 1rem;
               font-weight: 500;
@@ -516,15 +437,12 @@ body {
             text-decoration: none;
             height: 40%;
             width: 25rem;
-            // display: flex;
-            // flex-flow: column wrap;
-            // justify-content: center;
             @include flex(column wrap, flex-start, center);
 
             button {
               font-family: $font-family, sans-serif;
               color: $button-font;
-              background-color: $button-color-1;
+              background-color: $button-bg-color-1;
               border: none;
               height: 100%;
               padding-left: 1.5rem;
@@ -541,7 +459,7 @@ body {
           }
         }
 
-        .lower-container {
+        .grid-container {
           height: 85%;
           width: 100%;
 
@@ -555,10 +473,6 @@ body {
             .card {
               transition: box-shadow 0.6s, transform 0.5s;
               background-color: $card-bg-color;
-              // display: flex;
-              // flex-flow: column wrap;
-              // align-items: center;
-              // justify-content: space-between;
               @include flex(column wrap, center, space-between);
               box-sizing: border-box;
               padding: 1.5rem;
@@ -603,7 +517,7 @@ body {
                   font-size: 1.25rem;
                   border: none;
                   color: $button-font;
-                  background-color: $button-color-2;
+                  background-color: $button-bg-color-2;
                   width: 100%;
                   height: 100%;
                 }
@@ -647,10 +561,6 @@ body {
 
               .period-info {
                 width: 100%;
-                // display: flex;
-                // flex-flow: row wrap;
-                // align-items: center;
-                // justify-content: space-between;
                 @include flex(row wrap, center, space-between);
 
                 h3 {
@@ -735,10 +645,6 @@ body {
 
             #tips {
               .img-and-tip {
-                // display: flex;
-                // flex-flow: row wrap;
-                // align-items: center;
-                // justify-content: space-between;
                 @include flex(row wrap, center, space-between);
                 width: 100%;
 
@@ -785,10 +691,10 @@ body {
 
 @media only screen and (max-width: 1200px) {
   body {
-    .main-container {
+    .body-container {
       main {
         .dashboard {
-          .lower-container {
+          .grid-container {
             .grid {
               grid-template-columns: 1fr 1fr 1fr 1fr;
 
@@ -798,9 +704,6 @@ body {
 
               #period-usage {
                 grid-column: span 4;
-                // flex-flow: row wrap;
-                // align-items: center;
-                // justify-content: space-between;
                 @include flex(row wrap, center, space-between);
 
                 .graph {
@@ -818,10 +721,6 @@ body {
                   .budget-analysis {
                     margin-bottom: 2rem;
                     width: 75%;
-                    // display: flex;
-                    // flex-flow: row wrap;
-                    // align-items: center;
-                    // justify-content: space-around;
                     @include flex(row wrap, center, space-around);
 
                     h3 {
@@ -836,10 +735,6 @@ body {
                   .period-cost {
                     margin-bottom: 2rem;
                     width: 75%;
-                    // display: flex;
-                    // flex-flow: row wrap;
-                    // align-items: center;
-                    // justify-content: space-around;
                     @include flex(row wrap, center, space-around);
 
                     h3 {
@@ -866,7 +761,7 @@ body {
 
 @media only screen and (max-width: 900px) {
   body {
-    .main-container {
+    .body-container {
       .nav-closeNavMobile {
         position: absolute;
         height: auto;
@@ -887,7 +782,7 @@ body {
         width: 100%;
 
         .dashboard {
-          .lower-container {
+          .grid-container {
             .grid {
               grid-template-columns: 1fr 1fr 1fr 1fr;
 
@@ -897,9 +792,6 @@ body {
 
               #period-usage {
                 grid-column: span 4;
-                // flex-flow: row wrap;
-                // align-items: center;
-                // justify-content: space-between;
                 @include flex(row wrap, center, space-between);
 
                 .graph {
@@ -917,10 +809,6 @@ body {
                   .budget-analysis {
                     margin-bottom: 2rem;
                     width: 75%;
-                    // display: flex;
-                    // flex-flow: row wrap;
-                    // align-items: center;
-                    // justify-content: space-around;
                     @include flex(row wrap, center, space-around);
 
                     h3 {
@@ -935,10 +823,6 @@ body {
                   .period-cost {
                     margin-bottom: 2rem;
                     width: 75%;
-                    // display: flex;
-                    // flex-flow: row wrap;
-                    // align-items: center;
-                    // justify-content: space-around;
                     @include flex(row wrap, center, space-around);
 
                     h3 {
@@ -975,7 +859,7 @@ body {
 
 @media only screen and (max-width: 750px) {
   body {
-    .main-container {
+    .body-container {
       nav {
         position: fixed;
         transform: translateX(-100%);
@@ -1001,7 +885,7 @@ body {
         }
 
         .dashboard {
-          .upper-container {
+          .title-container {
             margin-top: 1rem;
             margin-bottom: 2rem;
 
@@ -1011,7 +895,7 @@ body {
             }
           }
 
-          .lower-container {
+          .grid-container {
             .grid {
               #my-bill {
                 strong {
@@ -1028,7 +912,7 @@ body {
 
 @media only screen and (max-width: 600px) {
   body {
-    .main-container {
+    .body-container {
       nav {
         position: fixed;
         transform: translateX(-100%);
@@ -1054,7 +938,7 @@ body {
         }
 
         .dashboard {
-          .upper-container {
+          .title-container {
             margin-top: 1rem;
             margin-bottom: 2rem;
 
@@ -1064,7 +948,7 @@ body {
             }
           }
 
-          .lower-container {
+          .grid-container {
             .grid {
               grid-template-columns: 1fr 1fr 1fr 1fr;
 
@@ -1074,9 +958,6 @@ body {
 
               #period-usage {
                 grid-column: span 4;
-                // flex-flow: row wrap;
-                // align-items: center;
-                // justify-content: space-between;
                 @include flex(row wrap, center, space-between);
 
                 .graph {
@@ -1093,10 +974,6 @@ body {
 
                   .budget-analysis {
                     width: 75%;
-                    // display: flex;
-                    // flex-flow: row wrap;
-                    // align-items: center;
-                    // justify-content: space-around;
                     @include flex(row wrap, center, space-around);
 
                     h3 {
@@ -1110,10 +987,6 @@ body {
 
                   .period-cost {
                     width: 75%;
-                    // display: flex;
-                    // flex-flow: row wrap;
-                    // align-items: center;
-                    // justify-content: space-around;
                     @include flex(row wrap, center, space-around);
 
                     h3 {
@@ -1140,7 +1013,7 @@ body {
 
 @media only screen and (max-width: 500px) {
   body {
-    .main-container {
+    .body-container {
       nav {
         position: fixed;
         transform: translateX(-100%);
@@ -1165,7 +1038,7 @@ body {
         }
 
         .dashboard {
-          .upper-container {
+          .title-container {
             margin-top: 1rem;
             margin-bottom: 2rem;
 
@@ -1175,13 +1048,10 @@ body {
             }
           }
 
-          .lower-container {
+          .grid-container {
             .grid {
               #period-usage {
                 grid-column: span 4;
-                // flex-flow: row wrap;
-                // align-items: center;
-                // justify-content: space-between;
                 @include flex(row wrap, center, space-between);
 
                 .graph {
@@ -1197,9 +1067,6 @@ body {
                 .period-info {
                   width: 100%;
                   display: flex;
-                  // flex-flow: row wrap;
-                  // align-items: baseline;
-                  // justify-content: space-around;
                   @include flex(row wrap, baseline, space-around);
                   text-align: center;
 
@@ -1231,7 +1098,7 @@ body {
 
 @media only screen and (max-width: 400px) {
   body {
-    .main-container {
+    .body-container {
       nav {
         position: fixed;
         transform: translateX(-100%);
@@ -1265,7 +1132,7 @@ body {
         }
 
         .dashboard {
-          .upper-container {
+          .title-container {
             margin-top: 1rem;
             margin-bottom: 2rem;
 
@@ -1275,13 +1142,10 @@ body {
             }
           }
 
-          .lower-container {
+          .grid-container {
             .grid {
               #period-usage {
                 grid-column: span 4;
-                // flex-flow: row wrap;
-                // align-items: center;
-                // justify-content: space-between;
                 @include flex(row wrap, center, space-between);
 
                 .graph {
@@ -1296,10 +1160,6 @@ body {
 
                 .period-info {
                   width: 100%;
-                  // display: flex;
-                  // flex-flow: row wrap;
-                  // align-items: baseline;
-                  // justify-content: space-around;
                   @include flex(row wrap, baseline, space-around);
                   text-align: center;
 

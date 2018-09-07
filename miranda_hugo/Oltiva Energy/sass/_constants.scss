@@ -8,7 +8,7 @@ $bg-gradient-2: #e1e8eb;
 $gray-1: #9d9d9d;
 $gray-2: #727376;
 
-// Font constants
+// Font size, family and colors
 $rem-font-size: 16px;
 $font-family: 'Quicksand';
 $text-font: $gray-1;
@@ -20,19 +20,21 @@ $link-color: $third-color;
 $header-link-color: $third-color;
 $cost-color: $third-color;
 
-// Backgrounds and Borders Colors
+// Backgrounds colors
 $main-bg-color-1: $bg-gradient-1;
 $main-bg-color-2: $bg-gradient-2;
 $header-bg-color: $secondary-color;
 $card-bg-color: $secondary-color;
-$logo-color: $first-color;
 $nav-bg-color:$first-color;
 $footer-bg-color:$first-color;
-$button-color-1:$first-color;
-$button-color-2:$third-color;
+$button-bg-color-1:$first-color;
+$button-bg-color-2:$third-color;
+$logo-bg-color: $first-color;
 $help-bg: $third-color;
-$border-color: $first-color;
-$second-border-color: $secondary-color;
+
+//Borders colors
+$border-color-1: $first-color;
+$border-color-2: $secondary-color;
 
 // Flexbox Mixin
 @mixin flex($flow, $align, $justify){

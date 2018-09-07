@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="css/detail.css">
 </head>
 
+<!-- adjustDetailBody() either displays or hides the header and/or nav bar depending on the body's width-->
+<!-- this is due to the detailMenuButton() function on the menu icon -->
 <body onresize="adjustDetailBody()">
   <div class="body-container">
     <header id="detail-header">
@@ -35,6 +37,7 @@
         <a href="#"><img src="assets/rick-sharp.PNG" id="user-icon"></a>
       </div>
       <a href="index.html" class="logo-link"><img class="logo" src="assets/oltiva-energy-logo.png"></a>
+      <!-- detailMenuButton() toggles the header and/or nav bar display to none or shown-->
       <a href="#" onclick="detailMenuButton()" class="menu-link">
         <img src="assets/menu-white.png" id="menu-icon">
       </a>
@@ -48,7 +51,7 @@
         <li><a href="#">
             Save Energy
           </a></li>
-        <li><a href="#" id="help-center-nav">
+        <li id="help-center-nav"><a href="#" >
             Help Center
           </a></li>
         <li id="search-li"><a href="#" id="search-link">
@@ -56,11 +59,10 @@
             <img src="assets/search.png">
           </a></li>
       </ul>
-
     </nav>
     <main>
-      <div class="upper-container">
-        <div class="title-container">
+      <div class="title-container">
+        <div class="title-breadcrumbs-bundle">
           <a href="#">Home</a> > <a href="#">Utilities</a> > Eco-friendly Base Plan
           <h1>Eco-friendly Base Plan</h1>
         </div>
@@ -83,25 +85,25 @@
         <div class="card" id="logo">
           <a href="index.html"><img src="assets/oltiva-energy-logo-alt.png"></a>
         </div>
-        <section class="card" id="plan-stats">
-          <div class="stat" id="monthly-cost">
+        <section class="card" id="plan-info">
+          <div class="info" id="monthly-cost">
             <h2>Cost Per Month (&pound;)</h2>
             <strong>&pound;200</strong>
           </div>
-          <div class="stat" id="utilities">
+          <div class="info" id="utilities">
             <h2>Utilities</h2>
             <ul>
               <li>Electricity</li>
               <li>Natural Gas</li>
             </ul>
           </div>
-          <div class="stat" id="plan">
+          <div class="info" id="plan">
             <h2>Plan</h2>
             <ul>
               <li>Pay-by-use</li>
             </ul>
           </div>
-          <div class="stat" id="popularity">
+          <div class="info" id="popularity">
             <h2>Popularity</h2>
             <div class="pop-rating">
               <img src="assets/star-green.png">
@@ -111,7 +113,7 @@
               <img src="assets/star-green.png">
             </div>
           </div>
-          <div class="stat" id="ecofriendly">
+          <div class="info" id="ecofriendly">
             <h2>Eco-friendly</h2>
             <div class="eco-rating">
               <img src="assets/leaf-green.png">
@@ -121,7 +123,7 @@
               <img src="assets/leaf-gray.png">
             </div>
           </div>
-          <div class="stat" id="sign-up">
+          <div class="info" id="sign-up">
             <button>Sign Up</button>
           </div>
         </section>
