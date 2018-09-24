@@ -7,66 +7,20 @@ let testimonialInfoContainer = document.getElementById('testimonials-info-contai
 let classCardsGrid = document.getElementById('class-cards-grid');
 let scheduleGrid = document.getElementById('schedule-grid');
 let scheduleWeek = document.getElementById('schedule-week');
-
 let homeTitle = document.getElementById('home-title');
 let classesTitle = document.getElementById('classes-title');
 let scheduleTitle = document.getElementById('schedule-title');
 let feedbackTitle = document.getElementById('feedback-title');
 
+
+let imgSrcPath = 'assets/';
 let viewClassCardsToggle = false;
+let cycleCount = 0;
+let testimonialsQty = 0;
 
-let classesElements = [{
-    classImg: document.getElementById('class1-img'),
-    classTitle: document.getElementById('class1-title'),
-    classPrice: document.getElementById('class1-price'),
-    classInstructor: {
-      instrcutorImg: document.getElementById('class1-instructor-img'),
-      instrcutorName: document.getElementById('class1-instructor-name'),
-    },
-    classRating: {
-      ratingStars: document.getElementById('class1-rating-stars'),
-      ratingReviews: document.getElementById('class1-rating-reviews'),
-    },
-    classDay: document.getElementById('class1-day'),
-    classFrequency: document.getElementById('class1-frequency'),
-    classSessions: document.getElementById('class1-sessions')
-  },
+let testimonials = [];
+let trainersElements = [
   {
-    classImg: document.getElementById('class2-img'),
-    classTitle: document.getElementById('class2-title'),
-    classPrice: document.getElementById('class2-price'),
-    classInstructor: {
-      instrcutorImg: document.getElementById('class2-instructor-img'),
-      instrcutorName: document.getElementById('class2-instructor-name'),
-    },
-    classRating: {
-      ratingStars: document.getElementById('class2-rating-stars'),
-      ratingReviews: document.getElementById('class2-rating-reviews'),
-    },
-    classDay: document.getElementById('class2-day'),
-    classFrequency: document.getElementById('class2-frequency'),
-    classSessions: document.getElementById('class2-sessions')
-  },
-  {
-    classImg: document.getElementById('class3-img'),
-    classTitle: document.getElementById('class3-title'),
-    classPrice: document.getElementById('class3-price'),
-    classInstructor: {
-      instrcutorImg: document.getElementById('class3-instructor-img'),
-      instrcutorName: document.getElementById('class3-instructor-name'),
-    },
-    classRating: {
-      ratingStars: document.getElementById('class3-rating-stars'),
-      ratingReviews: document.getElementById('class3-rating-reviews'),
-    },
-    classDay: document.getElementById('class3-day'),
-    classFrequency: document.getElementById('class3-frequency'),
-    classSessions: document.getElementById('class3-sessions')
-  }
-
-]
-
-let trainersElements = [{
     trainerIcon: document.getElementById('trainer1-icon'),
     trainerTitle: document.getElementById('trainer1-title'),
     trainerDesc: document.getElementById('trainer1-desc')
@@ -87,65 +41,39 @@ let trainersElements = [{
     trainerDesc: document.getElementById('trainer4-desc')
   }
 ]
-
-
-let dbRefClasses = firebase.database().ref().child('classes');
-dbRefClasses.on('value', snap => {
-  console.log(snap.val());
-  console.log(snap.numChildren());
-  classCardsGrid.innerHTML = '';
-  for (let i = 0; i < snap.numChildren(); i++) {
-
-    htmlStars = '';
-    numberOfStars = 0;
-    (snap.val()[i]['rating'].stars > 5) ? numberOfStars = 5: numberOfStars = snap.val()[i]['rating'].stars;
-    for (let j = 0; j < numberOfStars; j++) {
-      htmlStars += '<img src="assets/star.png">';
-    }
-    (i > 2) ? hiddenCard = 'hidden-card': hiddenCard = '';
-    classCardsGrid.innerHTML +=
-      '<div class="class-card ' + hiddenCard + ' ">' +
-      '<div class="card-img-container">' +
-      '<img src="' + imgSrcPath + snap.val()[i].img + '" class="card-img"></div>' +
-      '<div class="card-info-container">' +
-      '<h3 id="class1-title">' + snap.val()[i].title + '</h3>' +
-      '<div class="main-info">' +
-      '<p class="class-price">$' + snap.val()[i].price + '</p>' +
-      '<div class="class-instructor">' +
-      '<div class="instructor-img"><img src="' + imgSrcPath + snap.val()[i]['instructor'].img + '"></div>' +
-      '<p class="instructor-name">' + snap.val()[i]['instructor'].name + '</p></div>' +
-      '<div class="class-rating"><div class="stars">' + htmlStars + '</div>' +
-      '<p class="reviews-number" id="class1-rating-reviews">(' + snap.val()[i]['rating'].reviews + ' reviews)</p></div></div>' +
-      '<button class="full-class-btn">FULL CLASS</button>' +
-      '<div class="class-schedule">' +
-      '<p class="class-date" id="class1-day"><img src="assets/calendar.png">JAN 01, 2018</p>' +
-      '<p class="class-frequency" id="class1-frequency"><img src="assets/clock.png">MON-FRI: 6AM-8AM</p>' +
-      '<p class="class-sessions" id="class1-sessions"><img src="assets/book.png">20 SESSIONS</p></div><hr></div><div>'
-    // classCardsGrid.appendChild(classCardDivs[i]);
-    // console.log(classCardsGrid);
-
-  }
-
-
-  // classesElements.forEach((classElement, index) => {
-  //       classElement.classImg.src = imgSrcPath + snap.val()[index].img;
-  //       classElement.classTitle.innerText = snap.val()[index].title;
-  //       classElement.classPrice.innerText = '$' + snap.val()[index].price;
-  //       classElement.classInstructor.instrcutorImg.src = imgSrcPath + snap.val()[index]['instructor'].img;
-  //       classElement.classInstructor.instrcutorName.innerText = snap.val()[index]['instructor'].name;
-  //       classElement.classRating.ratingStars.innerHTML = '';
-  //       if (snap.val()[index]['rating'].stars > 5) snap.val()[index]['rating'].stars = 5;
-  //       for (i = 0; i < snap.val()[index]['rating'].stars; i++) {
-  //         classElement.classRating.ratingStars.innerHTML += '<img src="assets/star.png">';
-  //       }
-  //       classElement.classRating.ratingReviews.innerText = '(' + snap.val()[index]['rating'].reviews + ' reviews)';
-  //       classElement.classDay.innerHTML = '<img src="assets/calendar.png"> ' + snap.val()[index].day;
-  //       classElement.classFrequency.innerHTML = '<img src="assets/clock.png"> ' + snap.val()[index].frequency;
-  //       classElement.classSessions.innerHTML = '<img src="assets/book.png"> ' + snap.val()[index].sessions + ' SESSIONS';
-  //     });
-});
-
-hoursDefinition = [
+let trainers = [{
+  icon: 'dumbbell.png',
+  title: 'ENTHUSIASTIC TRAINER',
+  desc: 'Pellentesque habitant morbi tristique senectus et netus et' +
+    'malesuada fames ac turpis egestas.'
+},
+{
+  icon: 'flex.png',
+  title: 'ENTHUSIASTIC TRAINER',
+  desc: 'Pellentesque habitant morbi tristique senectus et netus et' +
+    'malesuada fames ac turpis egestas.'
+},
+{
+  icon: 'heartrate.png',
+  title: 'ENTHUSIASTIC TRAINER',
+  desc: 'Pellentesque habitant morbi tristique senectus et netus et' +
+    'malesuada fames ac turpis egestas.'
+},
+{
+  icon: 'lift.png',
+  title: 'ENTHUSIASTIC TRAINER',
+  desc: 'Pellentesque habitant morbi tristique senectus et netus et' +
+    'malesuada fames ac turpis egestas.'
+}
+]
+let testimonialImages = [
+  'testimonial-0.jpg',
+  'testimonial-1.jpg',
+  'testimonial-2.jpg',
+  'testimonial-3.jpg',
+  'testimonial-4.jpg',
+];
+let hoursDefinition = [
   '6AM - 8AM',
   '8AM - 10AM',
   '10AM - 12PM',
@@ -155,13 +83,52 @@ hoursDefinition = [
   '8PM - 10PM'
 ]
 
-scheduleWeek.addEventListener('input', function (evt) {
-  console.log(this.value);
-  refreshSchedule();
-});
 
-function refreshSchedule() {
-  let dbRefSchedule = firebase.database().ref().child('schedule-weeks');
+
+//Firebase database references
+let dbRefTestimonials = firebase.database().ref().child('testimonials');
+let dbRefClasses = firebase.database().ref().child('classes');
+let dbRefSchedule = firebase.database().ref().child('schedule-weeks');
+
+//Firebase database synchronization
+function syncClasses() {
+  dbRefClasses.on('value', snap => {
+    console.log(snap.val());
+    console.log(snap.numChildren());
+    classCardsGrid.innerHTML = '';
+    for (let i = 0; i < snap.numChildren(); i++) {
+  
+      htmlStars = '';
+      numberOfStars = 0;
+      (snap.val()[i]['rating'].stars > 5) ? numberOfStars = 5: numberOfStars = snap.val()[i]['rating'].stars;
+      for (let j = 0; j < numberOfStars; j++) {
+        htmlStars += '<img src="assets/star.png">';
+      }
+      (i > 2) ? hiddenCard = 'hidden-card': hiddenCard = '';
+      classCardsGrid.innerHTML +=
+        '<div class="class-card ' + hiddenCard + ' ">' +
+        '<div class="card-img-container">' +
+        '<img src="' + imgSrcPath + snap.val()[i].img + '" class="card-img"></div>' +
+        '<div class="card-info-container">' +
+        '<h3 id="class1-title">' + snap.val()[i].title + '</h3>' +
+        '<div class="main-info">' +
+        '<p class="class-price">$' + snap.val()[i].price + '</p>' +
+        '<div class="class-instructor">' +
+        '<div class="instructor-img"><img src="' + imgSrcPath + snap.val()[i]['instructor'].img + '"></div>' +
+        '<p class="instructor-name">' + snap.val()[i]['instructor'].name + '</p></div>' +
+        '<div class="class-rating"><div class="stars">' + htmlStars + '</div>' +
+        '<p class="reviews-number" id="class1-rating-reviews">(' + snap.val()[i]['rating'].reviews + ' reviews)</p></div></div>' +
+        '<button class="full-class-btn">FULL CLASS</button>' +
+        '<div class="class-schedule">' +
+        '<p class="class-date" id="class1-day"><img src="assets/calendar.png">JAN 01, 2018</p>' +
+        '<p class="class-frequency" id="class1-frequency"><img src="assets/clock.png">MON-FRI: 6AM-8AM</p>' +
+        '<p class="class-sessions" id="class1-sessions"><img src="assets/book.png">20 SESSIONS</p></div><hr></div><div>' 
+    }
+  });
+}
+syncClasses();
+
+function syncSchedule() {
   dbRefSchedule.on('value', snap => {
     console.log(snap.val());
     scheduleGrid.innerHTML = '';
@@ -216,42 +183,9 @@ function refreshSchedule() {
     }
   });
 }
-refreshSchedule();
+syncSchedule();
 
-
-let trainers = [{
-    icon: 'dumbbell.png',
-    title: 'ENTHUSIASTIC TRAINER',
-    desc: 'Pellentesque habitant morbi tristique senectus et netus et' +
-      'malesuada fames ac turpis egestas.'
-  },
-  {
-    icon: 'flex.png',
-    title: 'ENTHUSIASTIC TRAINER',
-    desc: 'Pellentesque habitant morbi tristique senectus et netus et' +
-      'malesuada fames ac turpis egestas.'
-  },
-  {
-    icon: 'heartrate.png',
-    title: 'ENTHUSIASTIC TRAINER',
-    desc: 'Pellentesque habitant morbi tristique senectus et netus et' +
-      'malesuada fames ac turpis egestas.'
-  },
-  {
-    icon: 'lift.png',
-    title: 'ENTHUSIASTIC TRAINER',
-    desc: 'Pellentesque habitant morbi tristique senectus et netus et' +
-      'malesuada fames ac turpis egestas.'
-  }
-]
-
-let dbRefTestimonials = firebase.database().ref().child('testimonials');
-
-let testimonialsQty = 0;
-
-let testimonials = [];
-
-function refreshTestimonials() {
+function syncTestimonials() {
   dbRefTestimonials.on('value', snap => {
     testimonials = [];
     for (let i = 0; i < snap.numChildren(); i++) {
@@ -268,8 +202,13 @@ function refreshTestimonials() {
     testimonialsQty = snap.numChildren();
   });
 }
-refreshTestimonials();
+syncTestimonials();
 
+
+
+//Schedule Week Input eventListener that synchronizes the Schedule when a change is made.
+scheduleWeek.addEventListener('input', () => syncSchedule());
+//Feedback Form eventListener that synchronizes the Testimonials when feedback is submitted.
 feedbackForm.addEventListener("submit", (e) => {
   e.preventDefault();
   testimonialImgPick = Math.floor(Math.random() * (testimonialImages.length-1));
@@ -281,20 +220,11 @@ feedbackForm.addEventListener("submit", (e) => {
   alert('Thank you for your feedback!');
   feedbackForm.elements['form-name'].value = '';
   feedbackForm.elements['form-feedback'].value = '';
-  refreshTestimonials();
+  syncTestimonials();
 
 });
-let testimonialImages = [
-  'testimonial-0.jpg',
-  'testimonial-1.jpg',
-  'testimonial-2.jpg',
-  'testimonial-3.jpg',
-  'testimonial-4.jpg',
-];
-let cycleCount = 0;
 
-let imgSrcPath = 'assets/';
-
+//Called by body, changes Testimonial every 10 seconds.
 function changeTestimonial() { 
   
   cycleCount < testimonialsQty-1 ? cycleCount++ : cycleCount = 0;  
@@ -312,6 +242,7 @@ function changeTestimonial() {
   }, 500);
 }
 
+//Loads Traiener Card Information (to be replaced)
 function loadTrainerCards() {
   console.log('LOADING TRAINER CARDS');
   trainersElements.forEach((trainerElement, index) => {
@@ -322,6 +253,7 @@ function loadTrainerCards() {
 
 }
 
+//View More/Less Button function that shows or hides extra class cards
 function viewClassCards() {
   console.log('VIEW MORE');
   let hiddenCards = document.getElementsByClassName('hidden-card');
@@ -337,6 +269,7 @@ function viewClassCards() {
   });  
 }
 
+//Scrolling functions from nav bar
 function scrollHome(){
   window.scroll({
     top: homeTitle.getBoundingClientRect().top, 
