@@ -1,0 +1,16 @@
+@mixin flex($flow, $align, $justify) {
+  display: flex;
+  flex-flow: $flow;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+$bg-color: #f4f4f4;
+$accent: #fea901;
+$lightgray: #898989;
+$darkgray: #333333;
+$black: #000000;
+$white: #ffffff;
+$card-btn-bg:#e0e0e0;
+$card-btn-color:#a3a3a3;
+$schedule-bg: #e5e5e5;

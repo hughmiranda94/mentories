@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body onload="var start=setInterval('changeTestimonial()', 10000); 
+loadTrainerCards();">
+  <nav>
+    <ul class="nav-list">
+      <li class="nav-item"><a href="#" onclick="scrollHome()">HOME</a></li>
+      <li class="nav-item"><a href="#" onclick="scrollClasses()">CLASSES</a></li>
+      <li class="nav-item"><a href="#" onclick="scrollSchedule()">SCHEDULE</a></li>
+      <li class="nav-item"><a href="#" onclick="scrollFeedback()">FEEDBACK</a></li>
+    </ul>
+  </nav>
+  <div class="cover" id="home-title">
+    <div class="filter">
+      <h1>THE FORCE FITNESS CLUB</h1>
+    </div>
+  </div>
+  <div class="classes" id="classes-title">
+    <p class="subtitle">DISCOVER</p>
+    <h2 class="title" >OUR CLASSES</h2>
+    <div class="grid-container">
+      <a href="#" class="class-filter">BY PRICE<img src="assets/dropdown.png"></a>
+      <div class="class-cards-grid" id="class-cards-grid">
+        <!-- CLASS #1 -->
+        <!-- <div class="class-card">
+          <div class="card-img-container">
+            <img src="assets/woman-crunches.jpeg" class="card-img" id="class1-img">
+          </div>
+          <div class="card-info-container">
+            <h3 id="class1-title">BODY ATTACK</h3>
+            <div class="main-info">
+              <p class="class-price" id="class1-price">
+                $75
+              </p>
+              <div class="class-instructor">
+                <div class="instructor-img">
+                  <img src="assets/ricki-sharp.jpg" id="class1-instructor-img">
+                </div>
+                <p class="instructor-name" id="class1-instructor-name">Richi park</p>
+              </div>
+              <div class="class-rating">
+                <div class="stars" id="class1-rating-stars">
+                  <img src="assets/star.png">
+                  <img src="assets/star.png">
+                  <img src="assets/star.png">
+                  <img src="assets/star.png">
+                  <img src="assets/star.png">
+                </div>
+                <p class="reviews-number" id="class1-rating-reviews">
+                  (25 reviews)
+                </p>
+              </div>
+            </div>
+            <button class="full-class-btn">
+              FULL CLASS
+            </button>
+            <div class="class-schedule">
+              <p class="class-date" id="class1-day"><img src="assets/calendar.png">JAN 01, 2018</p>
+              <p class="class-frequency" id="class1-frequency"><img src="assets/clock.png">MON-FRI: 6AM-8AM</p>
+              <p class="class-sessions" id="class1-sessions"><img src="assets/book.png">20 SESSIONS</p>
+            </div>
+            <hr>
+          </div>
+        </div> -->
+
+        <!-- CLASS #2 -->
+        <!-- <div class="class-card">
+          <div class="card-img-container">
+            <img src="assets/gym-break.jpg" class="card-img" id="class2-img">
+          </div>
+          <div class="card-info-container">
+            <h3 id="class2-title">BODY ATTACK</h3>
+            <div class="main-info">
+              <p class="class-price" id="class2-price">
+                $75
+              </p>
+              <div class="class-instructor">
+                <div class="instructor-img">
+                  <img src="assets/tom-hanks.jpg" id="class2-instructor-img">
+                </div>
+                <p class="instructor-name" id="class2-instructor-name">Tom Hank</p>
+              </div>
+              <div class="class-rating">
+                <div class="stars">
+                  <img src="assets/star.png">
+                  <img src="assets/star.png">
+                  <img src="assets/star.png">
+                  <img src="assets/star.png">
+                  <img src="assets/star.png">
+                </div>
+                <p class="reviews-number">
+                  (25 reviews)
+                </p>
+              </div>
+            </div>
+            <button class="full-class-btn">
+              FULL CLASS
+            </button>
+            <div class="class-schedule">
+              <p class="class-date"><img src="assets/calendar.png">JAN 01, 2018</p>
+              <p class="class-time"><img src="assets/clock.png">MON-FRI: 6AM-8AM</p>
+              <p class="class-sessions"><img src="assets/book.png">20 SESSIONS</p>
+            </div>
+            <hr>
+          </div>
+        </div> -->
+
+        <!-- CLASS #3 -->
+        <!-- <div class="class-card">
+          <div class="card-img-container">
+            <img src="assets/woman-crunches.jpeg" class="card-img">
+          </div>
+          <div class="card-info-container">
+            <h3>BODY ATTACK</h3>
+            <div class="main-info">
+              <p class="class-price">
+                $75
+              </p>
+              <div class="class-instructor">
+                <div class="instructor-img">
+                  <img src="assets/ricki-sharp.jpg">
+                </div>
+                <p class="instructor-name">Richi park</p>
+              </div>
+              <div class="class-rating">
+                <div class="stars">
+                  <img src="assets/star.png">
+                  <img src="assets/star.png">
+                  <img src="assets/star.png">
+                  <img src="assets/star.png">
+                  <img src="assets/star.png">
+                </div>
+                <p class="reviews-number">
+                  (25 reviews)
+                </p>
+              </div>
+            </div>
+            <button class="full-class-btn">
+              FULL CLASS
+            </button>
+            <div class="class-schedule">
+              <p class="class-date"><img src="assets/calendar.png">JAN 01, 2018</p>
+              <p class="class-time"><img src="assets/clock.png">MON-FRI: 6AM-8AM</p>
+              <p class="class-sessions"><img src="assets/book.png">20 SESSIONS</p>
+            </div>
+            <hr>
+          </div>
+        </div> -->
+        
+      </div>
+    </div>
+    <button class="view-more-btn" id="view-more-btn" onclick="viewClassCards()">VIEW MORE</button>
+  </div>
+  <div class="trainers">
+    <div class="filter">
+      <div class="trainer-cards-grid">
+        <div class="active trainer-card">
+          <img src="assets/dumbbell.png" class="trainer-icon" id="trainer1-icon">
+          <h3 id="trainer1-title">ENTHUSIASTIC TRAINER</h3>
+          <p id="trainer1-desc"> Pellentesque habitant morbi
+            tristique senectus et netus et
+            malesuada fames ac turpis
+            egestas.
+          </p>
+        </div>
+        <div class="trainer-card">
+          <img src="assets/flex.png" class="trainer-icon" id="trainer2-icon">
+          <h3 id="trainer2-title">ENTHUSIASTIC TRAINER</h3>
+          <p id="trainer2-desc"> Pellentesque habitant morbi
+            tristique senectus et netus et
+            malesuada fames ac turpis
+            egestas.
+          </p>
+        </div>
+        <div class="trainer-card">
+          <img src="assets/heartrate.png" class="trainer-icon" id="trainer3-icon">
+          <h3 id="trainer3-title">ENTHUSIASTIC TRAINER</h3>
+          <p id="trainer3-desc"> Pellentesque habitant morbi
+            tristique senectus et netus et
+            malesuada fames ac turpis
+            egestas.
+          </p>
+        </div>
+        <div class="trainer-card">
+          <img src="assets/lift.png" class="trainer-icon" id="trainer4-icon">
+          <h3 id="trainer4-title">ENTHUSIASTIC TRAINER</h3>
+          <p id="trainer4-desc"> Pellentesque habitant morbi
+            tristique senectus et netus et
+            malesuada fames ac turpis
+            egestas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="schedule" id="schedule-title">
+    <p class="subtitle">FOLLOW</p>
+    <h2 class="title" >YOUR SCHEDULE</h2>
+    <div class="grid-container">
+      <input type="week" id="schedule-week" value="2018-W01" class="week-input">
+      <div class="schedule-grid" id="schedule-grid">
+      </div>
+    </div>
+  </div>
+  <div class="testimonials">
+    <div class="testimonials-img-container" id="testimonials-img-container">
+      <img src="assets/testimonial-0.jpg" id="testimonial-img">
+    </div>
+    <div class="testimonials-info-container" id="testimonials-info-container">
+      <p class="subtitle">FEEDBACK</p>
+      <h2 class="title">TESTIMONIALS</h2>
+      <p class="testimonial-text" id="testimonial-txt">
+        Pellentesque habitant morbi
+        tristique senectus et netus et
+        malesuada fames ac turpis
+        egestas.vesibulum tor tor quam,
+        feugat vitae, ultrices tempor sit
+        amet ante. donec eu libero vitae.
+        malesuada fames ac turpis
+        egestas.vesibulum tor tor quam,
+        feugat vitae, ultrices tempor sit
+        amet ante. donec eu libero vitae.
+      </p>
+      <p class="testimonial-name" id="testimonial-name">
+        PBERT LUFFY
+      </p>
+    </div>
+  </div>
+  <div class="feedback" id="feedback-title">
+    <!-- <form class="feedback-form" id="feedback-form"> -->
+    <form class="feedback-form" id="feedback-form">
+      <h2 class="title">GIVE YOUR FEEDBACK</h2>
+      <input type="text" placeholder="NAME" class="feedback-data name-input" name="form-name">
+      <textarea class="feedback-data feedback-textarea" placeholder="FEEDBACK..." rows="7" name="form-feedback" maxlength="300"></textarea>
+      <button class="send-btn">SEND</button>
+    </form>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyA61oMoOE3AxZcTSOc7rnCNmCExD8S0heA",
+      authDomain: "forcefitnessclub-128df.firebaseapp.com",
+      databaseURL: "https://forcefitnessclub-128df.firebaseio.com",
+      projectId: "forcefitnessclub-128df",
+      storageBucket: "forcefitnessclub-128df.appspot.com",
+      messagingSenderId: "275800715940"
+    };
+    firebase.initializeApp(config);    
+  </script>
+  <script src="script.js"></script>
+</body>
+
+</html>
