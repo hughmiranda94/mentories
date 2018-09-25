@@ -101,14 +101,35 @@ nav {
     .class-filter {
       text-decoration: none;
       color: $accent;
+      font-family: 'Oswald', sans-serif;
       font-size: 0.8rem;
       font-weight: 500;
       margin-bottom: 1rem;
+      background-color: transparent;
+      border: none;
+      
+      
 
       img {
         height: 0.5rem;
         margin-left: 0.25rem;
       }
+    }
+
+    .class-filter:hover{
+      cursor: pointer;
+    }
+    .class-filter:focus{
+      outline: none;
+    }
+
+    select{
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      background: url('../assets/dropdown.png') no-repeat 100% 50% ;
+      background-size: 11px 7px;
+      width: 4.25rem;
     }
 
     .class-cards-grid {
@@ -194,10 +215,11 @@ nav {
 
               .stars {
                 width: 100%;
-                @include flex(row, center, space-evenly);
+                @include flex(row, center, center);
 
                 img {
                   width: 0.66rem;
+                  margin: 0.10rem;
                 }
               }
             }
