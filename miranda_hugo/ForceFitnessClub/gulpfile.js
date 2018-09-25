@@ -12,10 +12,10 @@ gulp.task('sass', function(){
 gulp.task('serve', ['sass'], function(){
 
   browserSync.init({
-    server: './'
+    server: './public/'
   })
   gulp.watch('./sass/*.scss', ['sass']);
-  gulp.watch('./*.html').on('change', browserSync.reload);
+  gulp.watch('.*.html').on('change', browserSync.reload);
   gulp.watch('./*.js').on('change', browserSync.reload);
 });
 
