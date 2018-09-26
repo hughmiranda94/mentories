@@ -20,10 +20,11 @@ let trainerCardsGrid = document.getElementById('trainer-cards-grid');
 let scheduleGrid = document.getElementById('schedule-grid');
 let scheduleWeek = document.getElementById('schedule-week');
 let classFilter = document.getElementById('class-filter');
+let bar = document.getElementById("bar"); 
 
 //Other variables
 let imgSrcPath = 'assets/';
-let viewClassCardsToggle = true;
+let viewClassCardsToggle = false;
 let cycleCount = 0;
 let testimonialsQty = 0;
 
@@ -103,7 +104,6 @@ function syncSchedule() {
         }
       }
       tableRows += `<tr>${daysPerRow}</tr>`;
-      // tableRows.concat('<tr>',daysPerRow,'</tr>');
 
     }
 
@@ -187,12 +187,20 @@ syncTrainers();
 scheduleWeek.addEventListener('input', () => syncSchedule());
 //Schedule Week Input eventListener that synchronizes the Schedule when a change is made.
 classFilter.addEventListener('input', () => loadClassCards());
-//Feedback Form eventListener that synchronizes the Testimonials when feedback is submitted.
-feedbackForm.addEventListener("submit", () => {
+//Feedback Form eventListener that synchronizes the Testimonials when feedback is submitted with button.
+feedbackForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  submitForm();
+  feedbackForm.checkValidity() ? submitForm() : alert('Form is not valid.');
+});
+//Feedback Form eventListener that synchronizes the Testimonials when feedback is submitted with keyup.
+feedbackForm.addEventListener('keyup', (e) => {
+  if(e.value == 'Enter'){
+    e.preventDefault();
+    feedbackForm.checkValidity() ? submitForm() : alert('Form is not valid.');
+  }
 });
 
+//Override for default submit, gives an img to the new testimonial and sends it to the DB
 function submitForm() {
   testimonialImgPick = Math.floor(Math.random() * (testimonialImgPool.length - 1));
   dbRefTestimonials.child(testimonialsQty).set({
@@ -205,6 +213,7 @@ function submitForm() {
   feedbackForm.elements['form-feedback'].value = '';
   syncTestimonials();
 }
+
 //Called by body, changes Testimonial every 10 seconds.
 function changeTestimonial() {
   cycleCount < testimonialsQty - 1 ? cycleCount++ : cycleCount = 0;
@@ -213,12 +222,30 @@ function changeTestimonial() {
   testimonialInfoContainer.style.opacity = 0;
 
   setTimeout(() => {
-    testimonialImgContainer.style.opacity = 100;
-    testimonialInfoContainer.style.opacity = 100;
     testimonialImg.src = imgSrcPath + testimonials[cycleCount].img;
     testimonialTxt.innerText = testimonials[cycleCount].txt;
-    testimonialName.innerText = testimonials[cycleCount].name;
+    testimonialName.innerText = testimonials[cycleCount].name;  
   }, 500);
+
+  setTimeout(() => {   
+    testimonialImgContainer.style.opacity = 100;
+    testimonialInfoContainer.style.opacity = 100;
+  }, 750);
+
+  moveProgressBar();
+}
+
+function moveProgressBar() {  
+  let width = 1;
+  let id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width+=0.1; 
+      bar.style.width = width + '%'; 
+    }
+  }
 }
 
 //Called by SyncClass just after updating the classes array
@@ -363,8 +390,6 @@ function loadTrainerCards() {
 
 //View More/Less Button function that shows or hides extra class cards
 function viewClassCards() {
-  console.log('VIEW MORE/LESS');
-
   let hiddenCards = document.getElementsByClassName('hidden-card');
   let viewBtn = document.getElementById('view-more-btn');
   for (let i = 0; i < hiddenCards.length; i++) {

@@ -34,3 +34,7 @@ function scrollFeedback() {
     behavior: 'smooth'
   });
 }
+
+function checkBodyScroll() {
+  console.log(document.documentElement.scrollHeight);    
+}
