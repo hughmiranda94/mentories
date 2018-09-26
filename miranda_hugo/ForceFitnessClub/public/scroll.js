@@ -39,7 +39,7 @@ function checkBodyScroll() {
     toTop.style.transform = 'translateX(95%)';
   }
   else{
-    toTop.style.transform = 'translateX(100%)';
+    toTop.style.transform = 'translateX(120%)';
   }
 }
 
