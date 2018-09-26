@@ -24,6 +24,142 @@ p {
   margin-bottom: 2rem;
 }
 
+#to-top {
+  width: 100%;
+  padding-top: 1rem;
+  position: fixed;
+  transition: all 0.5s;
+  transform: translateX(100%);
+
+  img {
+    width: 3rem;
+    display: block;
+  }
+}
+
+#img1 {
+  -webkit-animation: pulse1 1s infinite;
+  /* Safari 4+ */
+  -moz-animation: pulse1 1s infinite;
+  /* Fx 5+ */
+  -o-animation: pulse1 1s infinite;
+  /* Opera 12+ */
+  animation: pulse1 1s infinite;
+  /* IE 10+, Fx 29+ */
+}
+
+#img2 {
+  -webkit-animation: pulse2 1s infinite;
+  /* Safari 4+ */
+  -moz-animation: pulse2 1s infinite;
+  /* Fx 5+ */
+  -o-animation: pulse2 1s infinite;
+  /* Opera 12+ */
+  animation: pulse2 1s infinite;
+  /* IE 10+, Fx 29+ */
+}
+
+#img3 {
+  -webkit-animation: pulse3 1s infinite;
+  /* Safari 4+ */
+  -moz-animation: pulse3 1s infinite;
+  /* Fx 5+ */
+  -o-animation: pulse3 1s infinite;
+  /* Opera 12+ */
+  animation: pulse3 1s infinite;
+  /* IE 10+, Fx 29+ */
+}
+
+#to-top:hover {
+  cursor: pointer;
+}
+
+@-webkit-keyframes pulse1 {
+  20% { transform: scale(1.0);}
+
+  60% { transform: scale(1.1); }
+
+  100% { transform: scale(1.0); }
+}
+@-moz-keyframes pulse1 {
+  20% { transform: scale(1.0);}
+
+  60% { transform: scale(1.1); }
+
+  100% { transform: scale(1.0); }
+}
+@-o-keyframes pulse1 {
+  20% { transform: scale(1.0);}
+
+  60% { transform: scale(1.1); }
+
+  100% { transform: scale(1.0); }
+}
+@keyframes pulse1 {
+  20% { transform: scale(1.0);}
+
+  60% { transform: scale(1.1); }
+
+  100% { transform: scale(1.0); } 
+}
+
+@-webkit-keyframes pulse2 {
+  10% { transform: scale(1.0);}
+
+  50% { transform: scale(1.1); }
+
+  90% { transform: scale(1.0); }
+}
+@-moz-keyframes pulse2 {
+  10% { transform: scale(1.0);}
+
+  50% { transform: scale(1.1); }
+
+  90% { transform: scale(1.0); }
+}
+@-o-keyframes pulse2 {
+  10% { transform: scale(1.0);}
+
+  50% { transform: scale(1.1); }
+
+  90% { transform: scale(1.0); }
+}
+@keyframes pulse2 {
+  10% { transform: scale(1.0);}
+
+  50% { transform: scale(1.1); }
+
+  90% { transform: scale(1.0); }
+}
+
+@-webkit-keyframes pulse3 {
+  0% { transform: scale(1.0);}
+
+  40% { transform: scale(1.1); }
+
+  80% { transform: scale(1.0); }
+}
+@-moz-keyframes pulse3 {
+  0% { transform: scale(1.0);}
+
+  40% { transform: scale(1.1); }
+
+  80% { transform: scale(1.0); }
+}
+@-o-keyframes pulse3 {
+  0% { transform: scale(1.0);}
+
+  40% { transform: scale(1.1); }
+
+  80% { transform: scale(1.0); }
+}
+@keyframes pulse3 {
+  0% { transform: scale(1.0);}
+
+  40% { transform: scale(1.1); }
+
+  80% { transform: scale(1.0); }
+}
 //NAVIGATION BAR
 nav {
   @include flex(row, center, center);
@@ -41,6 +177,7 @@ nav {
       a {
         text-decoration: none;
         color: $lightgray;
+        transition: all 0.2s;
       }
 
       a:hover {

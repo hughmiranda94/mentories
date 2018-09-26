@@ -21,8 +21,12 @@
 
 </head>
 
-<body onload="var start=setInterval('changeTestimonial()', 10000); moveProgressBar();"
-onscroll="checkBodyScroll();">
+<body onload="var start=setInterval('changeTestimonial()', 10000); moveProgressBar();" onscroll="checkBodyScroll();">
+  <div id="to-top">
+    <img src="assets/top.png" id="img1">
+    <img src="assets/top.png" id="img2">
+    <img src="assets/top.png" id="img3">
+  </div>
   <nav>
     <ul class="nav-list">
       <li class="nav-item"><a href="#" onclick="scrollHome()">HOME</a></li>
@@ -31,6 +35,7 @@ onscroll="checkBodyScroll();">
       <li class="nav-item"><a href="#" onclick="scrollFeedback()">FEEDBACK</a></li>
     </ul>
   </nav>
+
   <div class="cover" id="home-title">
     <div class="filter">
       <h1>THE FORCE FITNESS CLUB</h1>

@@ -2,11 +2,10 @@ let homeTitle = document.getElementById('home-title');
 let classesTitle = document.getElementById('classes-title');
 let scheduleTitle = document.getElementById('schedule-title');
 let feedbackTitle = document.getElementById('feedback-title');
+let toTop = document.getElementById('to-top');
 
 //Scrolling functions from nav bar
-function scrollHome() {
-  console.log('WTF');
-  
+function scrollHome() {  
   window.scroll({
     top: 0,
     left: 0,
@@ -36,5 +35,14 @@ function scrollFeedback() {
 }
 
 function checkBodyScroll() {
-  console.log(document.documentElement.scrollHeight);    
+  if(window.pageYOffset>90){
+    toTop.style.transform = 'translateX(95%)';
+  }
+  else{
+    toTop.style.transform = 'translateX(100%)';
+  }
 }
+
+toTop.addEventListener('click', ()=>{
+  scrollHome();
+});
