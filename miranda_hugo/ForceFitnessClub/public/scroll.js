@@ -2,7 +2,7 @@ let homeTitle = document.getElementById('home-title');
 let classesTitle = document.getElementById('classes-title');
 let scheduleTitle = document.getElementById('schedule-title');
 let feedbackTitle = document.getElementById('feedback-title');
-let toTop = document.getElementById('to-top');
+let circleBg = document.getElementById('circle-bg');
 
 //Scrolling functions from nav bar
 function scrollHome() {  
@@ -36,13 +36,13 @@ function scrollFeedback() {
 
 function checkBodyScroll() {
   if(window.pageYOffset>90){
-    toTop.style.transform = 'translateX(95%)';
+    circleBg.style.transform = 'translateX(-110%)';
   }
   else{
-    toTop.style.transform = 'translateX(120%)';
+    circleBg.style.transform = 'translateX(0)';
   }
 }
 
-toTop.addEventListener('click', ()=>{
+circleBg.addEventListener('click', ()=>{
   scrollHome();
 });

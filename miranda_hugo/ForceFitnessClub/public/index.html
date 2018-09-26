@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
   <title>Force Fitness Club</title>
 
   <!-- update the version number as needed -->
@@ -21,12 +22,12 @@
 
 </head>
 
-<body onload="var start=setInterval('changeTestimonial()', 10000); moveProgressBar();" onscroll="checkBodyScroll();">
-  <div id="to-top">
-    <img src="assets/top.png" id="img1">
-    <img src="assets/top.png" id="img2">
-    <img src="assets/top.png" id="img3">
-  </div>
+<body onload="let start=setInterval('changeTestimonial()', 10000); moveProgressBar();" onscroll="checkBodyScroll();">
+    <div id="circle-bg">
+      <img src="assets/top.png" id="img1">
+      <img src="assets/top.png" id="img2">
+      <img src="assets/top.png" id="img3">
+    </div>
   <nav>
     <ul class="nav-list">
       <li class="nav-item"><a href="#" onclick="scrollHome()">HOME</a></li>

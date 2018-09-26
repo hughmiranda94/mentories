@@ -24,12 +24,19 @@ p {
   margin-bottom: 2rem;
 }
 
-#to-top {
-  width: 100%;
-  padding-top: 1rem;
+
+#circle-bg {
+
   position: fixed;
+  left: 100%;
   transition: all 0.5s;
-  transform: translateX(120%);
+  width: 6.5rem;
+  height: 6.5rem;
+  border: 3px solid $accent;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.75);
+  @include flex(column, center, center);
+  margin-top: 1rem;
 
   img {
     width: 3rem;
@@ -75,91 +82,173 @@ p {
 }
 
 @-webkit-keyframes pulse1 {
-  20% { transform: scale(1.0);}
+  20% {
+    transform: scale(1.0);
+  }
 
-  60% { transform: scale(1.1); }
+  60% {
+    transform: scale(1.1);
+  }
 
-  100% { transform: scale(1.0); }
+  100% {
+    transform: scale(1.0);
+  }
 }
+
 @-moz-keyframes pulse1 {
-  20% { transform: scale(1.0);}
+  20% {
+    transform: scale(1.0);
+  }
 
-  60% { transform: scale(1.1); }
+  60% {
+    transform: scale(1.1);
+  }
 
-  100% { transform: scale(1.0); }
+  100% {
+    transform: scale(1.0);
+  }
 }
+
 @-o-keyframes pulse1 {
-  20% { transform: scale(1.0);}
+  20% {
+    transform: scale(1.0);
+  }
 
-  60% { transform: scale(1.1); }
+  60% {
+    transform: scale(1.1);
+  }
 
-  100% { transform: scale(1.0); }
+  100% {
+    transform: scale(1.0);
+  }
 }
+
 @keyframes pulse1 {
-  20% { transform: scale(1.0);}
+  20% {
+    transform: scale(1.0);
+  }
 
-  60% { transform: scale(1.1); }
+  60% {
+    transform: scale(1.1);
+  }
 
-  100% { transform: scale(1.0); } 
+  100% {
+    transform: scale(1.0);
+  }
 }
 
 @-webkit-keyframes pulse2 {
-  10% { transform: scale(1.0);}
+  10% {
+    transform: scale(1.0);
+  }
 
-  50% { transform: scale(1.1); }
+  50% {
+    transform: scale(1.1);
+  }
 
-  90% { transform: scale(1.0); }
+  90% {
+    transform: scale(1.0);
+  }
 }
+
 @-moz-keyframes pulse2 {
-  10% { transform: scale(1.0);}
+  10% {
+    transform: scale(1.0);
+  }
 
-  50% { transform: scale(1.1); }
+  50% {
+    transform: scale(1.1);
+  }
 
-  90% { transform: scale(1.0); }
+  90% {
+    transform: scale(1.0);
+  }
 }
+
 @-o-keyframes pulse2 {
-  10% { transform: scale(1.0);}
+  10% {
+    transform: scale(1.0);
+  }
 
-  50% { transform: scale(1.1); }
+  50% {
+    transform: scale(1.1);
+  }
 
-  90% { transform: scale(1.0); }
+  90% {
+    transform: scale(1.0);
+  }
 }
+
 @keyframes pulse2 {
-  10% { transform: scale(1.0);}
+  10% {
+    transform: scale(1.0);
+  }
 
-  50% { transform: scale(1.1); }
+  50% {
+    transform: scale(1.1);
+  }
 
-  90% { transform: scale(1.0); }
+  90% {
+    transform: scale(1.0);
+  }
 }
 
 @-webkit-keyframes pulse3 {
-  0% { transform: scale(1.0);}
+  0% {
+    transform: scale(1.0);
+  }
 
-  40% { transform: scale(1.1); }
+  40% {
+    transform: scale(1.1);
+  }
 
-  80% { transform: scale(1.0); }
+  80% {
+    transform: scale(1.0);
+  }
 }
+
 @-moz-keyframes pulse3 {
-  0% { transform: scale(1.0);}
+  0% {
+    transform: scale(1.0);
+  }
 
-  40% { transform: scale(1.1); }
+  40% {
+    transform: scale(1.1);
+  }
 
-  80% { transform: scale(1.0); }
+  80% {
+    transform: scale(1.0);
+  }
 }
+
 @-o-keyframes pulse3 {
-  0% { transform: scale(1.0);}
+  0% {
+    transform: scale(1.0);
+  }
 
-  40% { transform: scale(1.1); }
+  40% {
+    transform: scale(1.1);
+  }
 
-  80% { transform: scale(1.0); }
+  80% {
+    transform: scale(1.0);
+  }
 }
+
 @keyframes pulse3 {
-  0% { transform: scale(1.0);}
+  0% {
+    transform: scale(1.0);
+  }
 
-  40% { transform: scale(1.1); }
+  40% {
+    transform: scale(1.1);
+  }
 
-  80% { transform: scale(1.0); }
+  80% {
+    transform: scale(1.0);
+  }
 }
+
 //NAVIGATION BAR
 nav {
   @include flex(row, center, center);
@@ -167,6 +256,7 @@ nav {
 
   .nav-list {
     list-style: none;
+    padding: 0 0 0 0;
 
     .nav-item {
       display: inline;
@@ -445,16 +535,20 @@ nav {
 //TRAINERS SECTION
 .trainers {
   @include flex(column, center, center);
-  height: 66vh;
+  min-height: 66vh;
   background-image: url('../assets/gym-woman.jpg');
   background-size: cover;
   background-position: 0% 40%;
   background-repeat: no-repeat;
+  box-sizing: border-box;
 
   .filter {
     @include flex(row, center, center);
+    min-height: 66vh;
     width: 100%;
     height: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   }
 
@@ -509,9 +603,11 @@ nav {
   padding-right: 15%;
   margin-top: 5rem;
   margin-bottom: 5rem;
+  box-sizing: border-box;
 
   .grid-container {
     width: 100%;
+    box-sizing: border-box;
 
     .schedule-filter {
       text-decoration: none;
@@ -539,6 +635,7 @@ nav {
 
     .schedule-grid {
       width: 100%;
+      box-sizing: border-box;
 
       thead {
         tr {
@@ -558,6 +655,7 @@ nav {
         font-size: 0.75rem;
         background-color: $accent;
         color: $white;
+        box-sizing: border-box;
       }
 
       .hour {
@@ -565,7 +663,8 @@ nav {
         text-align: center;
         font-size: 0.75rem;
         background-color: $schedule-bg;
-        transition: all 0.5s;
+        transition: all 0.5s;        
+        box-sizing: border-box;
       }
 
       .hour:hover {
@@ -642,6 +741,7 @@ nav {
 .feedback {
   height: 100vh;
   @include flex(column, center, center);
+  padding: 1rem;
 
   .feedback-form {
     @include flex(column, center, center);
@@ -692,14 +792,147 @@ nav {
   }
 }
 
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 1024px) {
 
   body {
+    #to-top {
+      #circle-bg {
+        width: 6rem;
+        height: 6rem;
+      }
+
+      img {
+        width: 2.5rem;
+      }
+    }
+
+    .trainers {
+      .trainer-cards-grid {
+        padding-left: 10%;
+        padding-right: 10%;
+      }
+    }
+
     .testimonials {
       .testimonials-info-container {
 
         padding: 1rem 1rem 1rem 1rem;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+
+  body {
+    #to-top {
+      #circle-bg {
+        width: 5.5rem;
+        height: 5.5rem;
+      }
+
+      img {
+        width: 2rem;
+      }
+    }
+
+    .classes {
+
+      .grid-container {
+
+        .class-cards-grid {
+
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+
+          .class-card {
+            grid-column: span 2;
+          }
+        }
+      }
+
+    }
+
+    .trainers {
+      .filter {
+        white-space: nowrap;
+        overflow: auto;
+        width: 100%;
+
+        .trainer-cards-grid {
+          width: 100%;
+
+          .trainer-card {
+            width: 10rem;
+            box-sizing: border-box;
+            padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+            white-space: normal;
+
+            p {
+              width: 10rem;
+            }
+          }
+        }
+      }
+    }
+
+    .schedule {
+      padding: 5% 5% 5% 5%;
+    }
+
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  body {
+
+    .cover {
+      background-position: center;
+    }
+
+    .classes {
+
+      .grid-container {
+
+        .class-cards-grid {
+
+          .class-card {
+            grid-column: span 4;
+          }
+        }
+      }
+
+    }
+
+    .trainers {
+      background-position: center;
+    }
+
+    .feedback {
+      .feedback-form {
+        width: 90%;
+
+        .feedback-data {
+          width: 90%;
+        }
+
+        .send-btn {
+          width: 90%;
+        }
+      }
+    }
+
+    .testimonials {
+      min-height: 66vh;
+
+      .testimonials-img-container {
+        display: none;
+      }
+
+      .testimonials-info-container {
+        width: 100%;
+      }
+    }
+
   }
 }

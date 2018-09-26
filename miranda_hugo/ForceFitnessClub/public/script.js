@@ -20,7 +20,7 @@ let trainerCardsGrid = document.getElementById('trainer-cards-grid');
 let scheduleGrid = document.getElementById('schedule-grid');
 let scheduleWeek = document.getElementById('schedule-week');
 let classFilter = document.getElementById('class-filter');
-let bar = document.getElementById("bar"); 
+let bar = document.getElementById("bar");
 
 //Other variables
 let imgSrcPath = 'assets/';
@@ -62,10 +62,66 @@ let dbRefTrainers = firebase.database().ref().child('trainers');
 function syncSchedule() {
   dbRefSchedule.on('value', snap => {
 
+    console.log(window.outerWidth);
+
     let week = scheduleWeek.value.charAt(5) + scheduleWeek.value.charAt(6) + scheduleWeek.value.charAt(7);
-    let tableRows = ''
-    for (let i = 0; i < 7; i++) {
-      let daysPerRow = '';
+    if (window.outerWidth > 500) {
+      let tableRows = ''
+      for (let i = 0; i < 7; i++) {
+        let daysPerRow = '';
+        for (let j = 0; j < 7; j++) {
+          switch (j) {
+            case 0:
+              day = 'monday';
+              break;
+            case 1:
+              day = 'tuesday';
+              break;
+            case 2:
+              day = 'wednesday';
+              break;
+            case 3:
+              day = 'thursday';
+              break;
+            case 4:
+              day = 'friday';
+              break;
+            case 5:
+              day = 'saturday';
+              break;
+            case 6:
+              day = 'sunday';
+              break;
+            default:
+              break;
+          }
+          if (snap.val()[week] != undefined) {
+            if (snap.val()[week][day]['H' + (i + 1)] != undefined) {
+              daysPerRow += '<td class="hour"><p>' + snap.val()[week][day]['H' + (i + 1)] + '</p><p><strong>' +
+                hoursDefinition[i] + '</strong></p></td>';
+            } else {
+              daysPerRow += '<td class="hour"></td>'
+            }
+          } else {
+            daysPerRow += '<td class="hour"></td>'
+          }
+        }
+        tableRows += `<tr>${daysPerRow}</tr>`;
+
+      }
+
+
+      scheduleGrid.innerHTML = '';
+      scheduleGrid.innerHTML += '<thead><tr><th class="day-name">MONDAY</th>' +
+        '<th class="day-name">TUESDAY</th>' +
+        '<th class="day-name">WEDNESDAY</th>' +
+        '<th class="day-name">THURSDAY</th>' +
+        '<th class="day-name">FRIDAY</th>' +
+        '<th class="day-name">SATURDAY</th>' +
+        '<th class="day-name">SUNDAY</th></tr></thead><tbody>' + tableRows + '</tbody>';
+    } else {
+
+      activitiesPerDay = '';
       for (let j = 0; j < 7; j++) {
         switch (j) {
           case 0:
@@ -92,30 +148,22 @@ function syncSchedule() {
           default:
             break;
         }
-        if (snap.val()[week] != undefined) {
-          if (snap.val()[week][day]['H' + (i + 1)] != undefined) {
-            daysPerRow += '<td class="hour"><p>' + snap.val()[week][day]['H' + (i + 1)] + '</p><p><strong>' +
-              hoursDefinition[i] + '</strong></p></td>';
-          } else {
-            daysPerRow += '<td class="hour"></td>'
+        activitiesPerDay+='<tr><th class="day-name" colspan="7">'+day.toUpperCase()+'</th></tr> '
+        for(let i=0; i<7; i++){
+          if (snap.val()[week] != undefined) {
+            if (snap.val()[week][day]['H' + (i + 1)] != undefined) {
+              activitiesPerDay += '<tr><td class="hour"><p>' + snap.val()[week][day]['H' + (i + 1)] + '</p><p><strong>' +
+                hoursDefinition[i] + '</strong></p></td></tr>';
+            }
           }
-        } else {
-          daysPerRow += '<td class="hour"></td>'
         }
       }
-      tableRows += `<tr>${daysPerRow}</tr>`;
 
+
+      scheduleGrid.innerHTML = '';
+      scheduleGrid.innerHTML += activitiesPerDay;
     }
 
-
-    scheduleGrid.innerHTML = '';
-    scheduleGrid.innerHTML += '<thead><tr><th class="day-name">MONDAY</th>' +
-      '<th class="day-name">TUESDAY</th>' +
-      '<th class="day-name">WEDNESDAY</th>' +
-      '<th class="day-name">THURSDAY</th>' +
-      '<th class="day-name">FRIDAY</th>' +
-      '<th class="day-name">SATURDAY</th>' +
-      '<th class="day-name">SUNDAY</th></tr></thead><tbody>' + tableRows + '</tbody>';
 
   });
 }
@@ -194,11 +242,13 @@ feedbackForm.addEventListener('submit', (e) => {
 });
 //Feedback Form eventListener that synchronizes the Testimonials when feedback is submitted with keyup.
 feedbackForm.addEventListener('keyup', (e) => {
-  if(e.value == 'Enter'){
+  if (e.value == 'Enter') {
     e.preventDefault();
     feedbackForm.checkValidity() ? submitForm() : alert('Form is not valid.');
   }
 });
+
+window.addEventListener('resize', () => syncSchedule())
 
 //Override for default submit, gives an img to the new testimonial and sends it to the DB
 function submitForm() {
@@ -224,10 +274,10 @@ function changeTestimonial() {
   setTimeout(() => {
     testimonialImg.src = imgSrcPath + testimonials[cycleCount].img;
     testimonialTxt.innerText = testimonials[cycleCount].txt;
-    testimonialName.innerText = testimonials[cycleCount].name;  
+    testimonialName.innerText = testimonials[cycleCount].name;
   }, 500);
 
-  setTimeout(() => {   
+  setTimeout(() => {
     testimonialImgContainer.style.opacity = 100;
     testimonialInfoContainer.style.opacity = 100;
   }, 750);
@@ -235,15 +285,16 @@ function changeTestimonial() {
   moveProgressBar();
 }
 
-function moveProgressBar() {  
+function moveProgressBar() {
   let width = 1;
   let id = setInterval(frame, 10);
+
   function frame() {
     if (width >= 100) {
       clearInterval(id);
     } else {
-      width+=0.1; 
-      bar.style.width = width + '%'; 
+      width += 0.1;
+      bar.style.width = width + '%';
     }
   }
 }
