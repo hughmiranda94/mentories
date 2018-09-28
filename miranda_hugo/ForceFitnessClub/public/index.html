@@ -7,14 +7,14 @@
   <title>Force Fitness Club</title>
 
   <!-- update the version number as needed -->
-  <script defer src="/__/firebase/5.5.1/firebase-app.js"></script>
+  <!-- <script defer src="/__/firebase/5.5.1/firebase-app.js"></script> -->
   <!-- include only the Firebase features as you need -->
-  <script defer src="/__/firebase/5.5.1/firebase-auth.js"></script>
+  <!-- <script defer src="/__/firebase/5.5.1/firebase-auth.js"></script>
   <script defer src="/__/firebase/5.5.1/firebase-database.js"></script>
   <script defer src="/__/firebase/5.5.1/firebase-messaging.js"></script>
-  <script defer src="/__/firebase/5.5.1/firebase-storage.js"></script>
+  <script defer src="/__/firebase/5.5.1/firebase-storage.js"></script> -->
   <!-- initialize the SDK after all desired features are loaded -->
-  <script defer src="/__/firebase/init.js"></script>
+  <!-- <script defer src="/__/firebase/init.js"></script> -->
   <link rel="icon" href="assets/flex.png">
   <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -99,8 +99,10 @@
   <div class="feedback" id="feedback-title">
     <form class="feedback-form" id="feedback-form">
       <h2 class="title">GIVE YOUR FEEDBACK</h2>
-      <input type="text" placeholder="NAME" class="feedback-data name-input" name="form-name" required>
-      <textarea class="feedback-data feedback-textarea" placeholder="FEEDBACK..." rows="7" name="form-feedback"
+      <input type="text" placeholder="NAME" class="feedback-data name-input" 
+      name="form-name" id="form-name" required>
+      <textarea class="feedback-data feedback-textarea" placeholder="FEEDBACK..." 
+      rows="7" name="form-feedback" id="form-feedback"
         maxlength="300" required></textarea>
       <button type="submit" class="send-btn">SEND</button>
     </form>
