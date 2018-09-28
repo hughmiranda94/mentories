@@ -15,6 +15,7 @@ p {
   color: $accent;
   font-size: 0.8rem;
   font-weight: 500;
+  text-align: center;
 }
 
 .title {
@@ -22,13 +23,14 @@ p {
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
-
-#scroll-up{
+//Scroll Up icon
+#scroll-up {
   bottom: 1vh;
   transform: translateX(-110%);
-  position: fixed; 
+  position: fixed;
   transition: all 0.5s;
   width: 3rem;
   height: 3rem;
@@ -41,212 +43,19 @@ p {
   img {
     width: 2rem;
     display: block;
+    -webkit-animation: pulse 1s infinite;
+    /* Safari 4+ */
+    -moz-animation: pulse 1s infinite;
+    /* Fx 5+ */
+    -o-animation: pulse 1s infinite;
+    /* Opera 12+ */
+    animation: pulse 1s infinite;
+    /* IE 10+, Fx 29+ */
   }
 }
-
-#img1 {
-  -webkit-animation: pulse1 1s infinite;
-  /* Safari 4+ */
-  -moz-animation: pulse1 1s infinite;
-  /* Fx 5+ */
-  -o-animation: pulse1 1s infinite;
-  /* Opera 12+ */
-  animation: pulse1 1s infinite;
-  /* IE 10+, Fx 29+ */
-}
-
-#img2 {
-  -webkit-animation: pulse2 1s infinite;
-  /* Safari 4+ */
-  -moz-animation: pulse2 1s infinite;
-  /* Fx 5+ */
-  -o-animation: pulse2 1s infinite;
-  /* Opera 12+ */
-  animation: pulse2 1s infinite;
-  /* IE 10+, Fx 29+ */
-}
-
-#img3 {
-  -webkit-animation: pulse3 1s infinite;
-  /* Safari 4+ */
-  -moz-animation: pulse3 1s infinite;
-  /* Fx 5+ */
-  -o-animation: pulse3 1s infinite;
-  /* Opera 12+ */
-  animation: pulse3 1s infinite;
-  /* IE 10+, Fx 29+ */
-}
-
 #scroll-up:hover {
-  cursor: pointer;
-}
-
-@-webkit-keyframes pulse1 {
-  20% {
-    transform: scale(1.0);
-  }
-
-  60% {
-    transform: scale(1.1);
-  }
-
-  100% {
-    transform: scale(1.0);
-  }
-}
-
-@-moz-keyframes pulse1 {
-  20% {
-    transform: scale(1.0);
-  }
-
-  60% {
-    transform: scale(1.1);
-  }
-
-  100% {
-    transform: scale(1.0);
-  }
-}
-
-@-o-keyframes pulse1 {
-  20% {
-    transform: scale(1.0);
-  }
-
-  60% {
-    transform: scale(1.1);
-  }
-
-  100% {
-    transform: scale(1.0);
-  }
-}
-
-@keyframes pulse1 {
-  20% {
-    transform: scale(1.0);
-  }
-
-  60% {
-    transform: scale(1.1);
-  }
-
-  100% {
-    transform: scale(1.0);
-  }
-}
-
-@-webkit-keyframes pulse2 {
-  10% {
-    transform: scale(1.0);
-  }
-
-  50% {
-    transform: scale(1.1);
-  }
-
-  90% {
-    transform: scale(1.0);
-  }
-}
-
-@-moz-keyframes pulse2 {
-  10% {
-    transform: scale(1.0);
-  }
-
-  50% {
-    transform: scale(1.1);
-  }
-
-  90% {
-    transform: scale(1.0);
-  }
-}
-
-@-o-keyframes pulse2 {
-  10% {
-    transform: scale(1.0);
-  }
-
-  50% {
-    transform: scale(1.1);
-  }
-
-  90% {
-    transform: scale(1.0);
-  }
-}
-
-@keyframes pulse2 {
-  10% {
-    transform: scale(1.0);
-  }
-
-  50% {
-    transform: scale(1.1);
-  }
-
-  90% {
-    transform: scale(1.0);
-  }
-}
-
-@-webkit-keyframes pulse3 {
-  0% {
-    transform: scale(1.0);
-  }
-
-  40% {
-    transform: scale(1.1);
-  }
-
-  80% {
-    transform: scale(1.0);
-  }
-}
-
-@-moz-keyframes pulse3 {
-  0% {
-    transform: scale(1.0);
-  }
-
-  40% {
-    transform: scale(1.1);
-  }
-
-  80% {
-    transform: scale(1.0);
-  }
-}
-
-@-o-keyframes pulse3 {
-  0% {
-    transform: scale(1.0);
-  }
-
-  40% {
-    transform: scale(1.1);
-  }
-
-  80% {
-    transform: scale(1.0);
-  }
-}
-
-@keyframes pulse3 {
-  0% {
-    transform: scale(1.0);
-  }
-
-  40% {
-    transform: scale(1.1);
-  }
-
-  80% {
-    transform: scale(1.0);
-  }
+  cursor: pointer;  
+  background-color: rgb(0, 0, 0);
 }
 
 //NAVIGATION BAR
@@ -346,10 +155,6 @@ nav {
 
     .class-filter:hover {
       cursor: pointer;
-    }
-
-    .class-filter:focus {
-      // outline: none;
     }
 
     select {
@@ -474,12 +279,6 @@ nav {
             background-color: $darkgray;
           }
 
-          .full-class-btn:focus {
-            // outline: none;
-          }
-
-
-
           .class-schedule {
             width: 100%;
             @include flex(row, center, space-around);
@@ -524,10 +323,6 @@ nav {
     cursor: pointer;
     background-color: $accent;
     color: $white;
-  }
-
-  .view-more-btn:focus {
-    // outline: none;
   }
 
 }
@@ -627,15 +422,13 @@ nav {
       background-color: transparent;
       border: none;
       transition: all 0.5s;
-    }
-
-    .week-input:focus {
-      // outline: none;
+      -webkit-appearance: none;
     }
 
     .schedule-grid {
       width: 100%;
       box-sizing: border-box;
+      table-layout: fixed;
 
       thead {
         tr {
@@ -663,7 +456,7 @@ nav {
         text-align: center;
         font-size: 0.75rem;
         background-color: $schedule-bg;
-        transition: all 0.5s;        
+        transition: all 0.5s;
         box-sizing: border-box;
       }
 
@@ -681,6 +474,7 @@ nav {
   background-color: $darkgray;
   height: 66vh;
   overflow: hidden;
+  box-sizing: border-box;
 
   .testimonials-img-container {
     width: 45%;
@@ -705,6 +499,11 @@ nav {
 
     .title {
       color: $white;
+      text-align: start;
+    }
+
+    .subtitle{
+      text-align: start;
     }
 
     .testimonial-text {
@@ -726,11 +525,12 @@ nav {
   }
 }
 
+//Progress Bar - Empty
 .progress {
   width: 100%;
   background-color: $white;
 }
-
+//Progress Bar - Fill
 .bar {
   width: 1%;
   height: 10px;
@@ -757,10 +557,6 @@ nav {
       margin-top: 0.75rem;
       margin-bottom: 0.75rem;
       padding: 0.5rem;
-    }
-
-    .feedback-data:focus {
-      // outline: none;
     }
 
     .name-input {
@@ -791,6 +587,9 @@ nav {
     }
   }
 }
+
+
+//Responsive
 
 @media only screen and (max-width: 1024px) {
 
@@ -882,7 +681,7 @@ nav {
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
 
   body {
 
@@ -934,5 +733,19 @@ nav {
       }
     }
 
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  body {
+    .schedule {
+      .grid-container {
+        .schedule-filter {
+          .week-input {
+            width: 100%;
+          }
+        }
+      }
+    }
   }
 }

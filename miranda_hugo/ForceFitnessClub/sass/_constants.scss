@@ -14,3 +14,59 @@ $white: #ffffff;
 $card-btn-bg:#e0e0e0;
 $card-btn-color:#a3a3a3;
 $schedule-bg: #e5e5e5;
+
+@-webkit-keyframes pulse {
+  20% {
+    transform: scale(1.0);
+  }
+
+  60% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+@-moz-keyframes pulse {
+  20% {
+    transform: scale(1.0);
+  }
+
+  60% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+@-o-keyframes pulse {
+  20% {
+    transform: scale(1.0);
+  }
+
+  60% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+@keyframes pulse {
+  20% {
+    transform: scale(1.0);
+  }
+
+  60% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
+}

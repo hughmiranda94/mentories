@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="utf-8">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <title>Force Fitness Club</title>
 
@@ -16,13 +15,14 @@
   <script defer src="/__/firebase/5.5.1/firebase-storage.js"></script>
   <!-- initialize the SDK after all desired features are loaded -->
   <script defer src="/__/firebase/init.js"></script>
+  <link rel="icon" href="assets/flex.png">
   <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
 
 </head>
 
-<body onload="let start=setInterval('changeTestimonial()', 10000); moveProgressBar();" onscroll="checkBodyScroll();">
+<body onscroll="checkBodyScroll();" onload="let start=setInterval('changeTestimonial()', 10000); moveProgressBar();">
     <div id="scroll-up">
       <img src="assets/top.png" id="img1">
     </div>
@@ -52,7 +52,7 @@
       <div class="class-cards-grid" id="class-cards-grid">
       </div>
     </div>
-    <button class="view-more-btn" id="view-more-btn" onclick="viewClassCards()">VIEW MORE</button>
+    <button class="view-more-btn" id="view-more-btn" onclick="viewClassCards(true);">VIEW MORE</button>
   </div>
   <div class="trainers">
     <div class="filter">
@@ -64,7 +64,7 @@
     <p class="subtitle">FOLLOW</p>
     <h2 class="title">YOUR SCHEDULE</h2>
     <div class="grid-container">
-      <input type="week" id="schedule-week" value="2018-W01" class="week-input">
+      <input type="week" id="schedule-week" value="2018-W01" class="week-input" required>
       <table class="schedule-grid" id="schedule-grid">
       </table>
     </div>

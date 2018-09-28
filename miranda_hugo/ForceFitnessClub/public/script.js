@@ -1,4 +1,4 @@
-var config = {
+const config = {
   apiKey: "AIzaSyA61oMoOE3AxZcTSOc7rnCNmCExD8S0heA",
   authDomain: "forcefitnessclub-128df.firebaseapp.com",
   databaseURL: "https://forcefitnessclub-128df.firebaseio.com",
@@ -7,6 +7,17 @@ var config = {
   messagingSenderId: "275800715940"
 };
 firebase.initializeApp(config);
+
+//Firebase database references
+let dbRefTestimonials = firebase.database().ref().child('testimonials');
+let dbRefClasses = firebase.database().ref().child('classes');
+let dbRefSchedule = firebase.database().ref().child('schedule');
+let dbRefTrainers = firebase.database().ref().child('trainers');
+
+//Database collectors
+let trainers = [];
+let testimonials = [];
+let classes = [];
 
 //DOM Elements by ID
 let feedbackForm = document.getElementById('feedback-form');
@@ -21,22 +32,24 @@ let scheduleGrid = document.getElementById('schedule-grid');
 let scheduleWeek = document.getElementById('schedule-week');
 let classFilter = document.getElementById('class-filter');
 let bar = document.getElementById("bar");
+let hiddenCards = document.getElementsByClassName('hidden-card');
+let viewBtn = document.getElementById('view-more-btn');
 
 //Other variables
-let imgSrcPath = 'assets/';
+const imgSrcPath = 'assets/';
 let viewClassCardsToggle = false;
 let cycleCount = 0;
 let testimonialsQty = 0;
 
 //Arrays for default values
-let testimonialImgPool = [
+const testimonialImgPool = [
   'testimonial-0.jpg',
   'testimonial-1.jpg',
   'testimonial-2.jpg',
   'testimonial-3.jpg',
   'testimonial-4.jpg',
 ];
-let hoursDefinition = [
+const hoursDefinition = [
   '6AM - 8AM',
   '8AM - 10AM',
   '10AM - 12PM',
@@ -47,28 +60,95 @@ let hoursDefinition = [
 ]
 
 
-let trainers = [];
-let testimonials = [];
-let classes = [];
-
-//Firebase database references
-let dbRefTestimonials = firebase.database().ref().child('testimonials');
-let dbRefClasses = firebase.database().ref().child('classes');
-let dbRefSchedule = firebase.database().ref().child('schedule-weeks');
-let dbRefTrainers = firebase.database().ref().child('trainers');
 
 //Firebase database synchronization
 
 function syncSchedule() {
   dbRefSchedule.on('value', snap => {
 
-    console.log(window.outerWidth);
+    let week = scheduleWeek.value;
 
-    let week = scheduleWeek.value.charAt(5) + scheduleWeek.value.charAt(6) + scheduleWeek.value.charAt(7);
+
+    //Regular sized Schedule
     if (window.outerWidth > 500) {
       let tableRows = ''
-      for (let i = 0; i < 7; i++) {
-        let daysPerRow = '';
+      if (snap.val()[week] != undefined) {
+        for (let i = 0; i < 7; i++) {
+          let daysPerRow = '';
+          for (let j = 0; j < 7; j++) {
+            switch (j) {
+              case 0:
+                day = 'monday';
+                break;
+              case 1:
+                day = 'tuesday';
+                break;
+              case 2:
+                day = 'wednesday';
+                break;
+              case 3:
+                day = 'thursday';
+                break;
+              case 4:
+                day = 'friday';
+                break;
+              case 5:
+                day = 'saturday';
+                break;
+              case 6:
+                day = 'sunday';
+                break;
+              default:
+                break;
+            }
+            if (snap.val()[week][day]['H' + (i + 1)] != undefined) {
+              daysPerRow += `<td class="hour"><p>${snap.val()[week][day]['H' + (i + 1)]}</p><p><strong>` +
+                hoursDefinition[i] + '</strong></p></td>';
+            } else {
+              daysPerRow += '<td class="hour"></td>'
+            }
+          }
+          tableRows += `<tr>${daysPerRow}</tr>`;
+
+        }
+        scheduleGrid.innerHTML = '';
+        scheduleGrid.innerHTML += `<thead><tr><th class="day-name">MONDAY</th>
+        <th class="day-name">TUESDAY</th>
+        <th class="day-name">WEDNESDAY</th>
+        <th class="day-name">THURSDAY</th>
+        <th class="day-name">FRIDAY</th>
+        <th class="day-name">SATURDAY</th>
+        <th class="day-name">SUNDAY</th></tr></thead><tbody>${tableRows}</tbody>`;
+      } else {
+        for (let i = 0; i < 7; i++) {
+          let daysPerRow = '';
+          for (let j = 0; j < 7; j++) {
+            daysPerRow += '<td class="hour"></td>'
+          }
+          tableRows += `<tr>${daysPerRow}</tr>`;
+
+        }
+        scheduleGrid.innerHTML = '';
+        scheduleGrid.innerHTML += `<thead><tr><th class="day-name">MONDAY</th>
+        <th class="day-name">TUESDAY</th>
+        <th class="day-name">WEDNESDAY</th>
+        <th class="day-name">THURSDAY</th>
+        <th class="day-name">FRIDAY</th>
+        <th class="day-name">SATURDAY</th>
+        <th class="day-name">SUNDAY</th></tr></thead><tbody>${tableRows}</tbody>`;
+        setTimeout(() => {
+          alert('Sorry, there are no activities this week');
+        }, 250);
+      }
+
+
+
+
+    }
+    //Mobile sized Schedule
+    else {
+      let activitiesPerDay = '';
+      if (snap.val()[week] != undefined) {
         for (let j = 0; j < 7; j++) {
           switch (j) {
             case 0:
@@ -95,76 +175,23 @@ function syncSchedule() {
             default:
               break;
           }
-          if (snap.val()[week] != undefined) {
+          activitiesPerDay += `<tr><th class="day-name"><p>${day.toUpperCase()}</p></th></tr>`
+          for (let i = 0; i < 7; i++) {
             if (snap.val()[week][day]['H' + (i + 1)] != undefined) {
-              daysPerRow += '<td class="hour"><p>' + snap.val()[week][day]['H' + (i + 1)] + '</p><p><strong>' +
-                hoursDefinition[i] + '</strong></p></td>';
-            } else {
-              daysPerRow += '<td class="hour"></td>'
-            }
-          } else {
-            daysPerRow += '<td class="hour"></td>'
-          }
-        }
-        tableRows += `<tr>${daysPerRow}</tr>`;
-
-      }
-
-
-      scheduleGrid.innerHTML = '';
-      scheduleGrid.innerHTML += '<thead><tr><th class="day-name">MONDAY</th>' +
-        '<th class="day-name">TUESDAY</th>' +
-        '<th class="day-name">WEDNESDAY</th>' +
-        '<th class="day-name">THURSDAY</th>' +
-        '<th class="day-name">FRIDAY</th>' +
-        '<th class="day-name">SATURDAY</th>' +
-        '<th class="day-name">SUNDAY</th></tr></thead><tbody>' + tableRows + '</tbody>';
-    } else {
-
-      activitiesPerDay = '';
-      for (let j = 0; j < 7; j++) {
-        switch (j) {
-          case 0:
-            day = 'monday';
-            break;
-          case 1:
-            day = 'tuesday';
-            break;
-          case 2:
-            day = 'wednesday';
-            break;
-          case 3:
-            day = 'thursday';
-            break;
-          case 4:
-            day = 'friday';
-            break;
-          case 5:
-            day = 'saturday';
-            break;
-          case 6:
-            day = 'sunday';
-            break;
-          default:
-            break;
-        }
-        activitiesPerDay+='<tr><th class="day-name" colspan="7">'+day.toUpperCase()+'</th></tr> '
-        for(let i=0; i<7; i++){
-          if (snap.val()[week] != undefined) {
-            if (snap.val()[week][day]['H' + (i + 1)] != undefined) {
-              activitiesPerDay += '<tr><td class="hour"><p>' + snap.val()[week][day]['H' + (i + 1)] + '</p><p><strong>' +
+              activitiesPerDay += `<tr><td class="hour"><p>${snap.val()[week][day]['H' + (i + 1)]}</p><p><strong>` +
                 hoursDefinition[i] + '</strong></p></td></tr>';
             }
           }
         }
+        scheduleGrid.innerHTML = '';
+        scheduleGrid.innerHTML += activitiesPerDay;
+      } else {
+
+        scheduleGrid.innerHTML = '';
+        scheduleGrid.innerHTML += '<tr><td class="hour"><p>NO ACTIVITIES THIS WEEK</p></td></tr>';
       }
 
-
-      scheduleGrid.innerHTML = '';
-      scheduleGrid.innerHTML += activitiesPerDay;
     }
-
-
   });
 }
 syncSchedule();
@@ -247,8 +274,11 @@ feedbackForm.addEventListener('keyup', (e) => {
     feedbackForm.checkValidity() ? submitForm() : alert('Form is not valid.');
   }
 });
-
-window.addEventListener('resize', () => syncSchedule())
+//Window eventListener that loads the correct type of schedule and class cards depending the screen's width
+window.addEventListener('resize', () => {
+  syncSchedule();
+  loadClassCards();
+})
 
 //Override for default submit, gives an img to the new testimonial and sends it to the DB
 function submitForm() {
@@ -267,24 +297,43 @@ function submitForm() {
 //Called by body, changes Testimonial every 10 seconds.
 function changeTestimonial() {
   cycleCount < testimonialsQty - 1 ? cycleCount++ : cycleCount = 0;
-  console.log('CHANGING to ' + testimonials[cycleCount].name + "'s testimonial");
+  //Fading containers out
   testimonialImgContainer.style.opacity = 0;
   testimonialInfoContainer.style.opacity = 0;
 
-  setTimeout(() => {
+  //Promise to change the Testimonial at 500ms
+  let changeTestimonialInfo = new Promise((resolve, reject) => {
+    setTimeout(function () {
+      resolve(`CHANGING TO ${testimonials[cycleCount].name}'s testimonial`);
+      reject('Testimonial change failed.');
+    }, 500);
+  });
+  changeTestimonialInfo.then((successMessage) => {
     testimonialImg.src = imgSrcPath + testimonials[cycleCount].img;
     testimonialTxt.innerText = testimonials[cycleCount].txt;
     testimonialName.innerText = testimonials[cycleCount].name;
-  }, 500);
+    console.log(successMessage);
+  });
+  changeTestimonialInfo.catch((rejectMessage) => console.log(rejectMessage))
 
-  setTimeout(() => {
+  //Prmoise to fade the testimonial info back in
+  let fadeInfoBackIn = new Promise((resolve, reject) => {
+    setTimeout(function () {
+      resolve('Fading testimonial back in.');
+      reject('Fading information back in failed.');
+    }, 750);
+  });
+  fadeInfoBackIn.then((successMessage) => {
     testimonialImgContainer.style.opacity = 100;
     testimonialInfoContainer.style.opacity = 100;
-  }, 750);
+    console.log(successMessage);
+  });
+  fadeInfoBackIn.catch((rejectMessage) => console.log(rejectMessage));
 
   moveProgressBar();
 }
 
+//Function that animates the testimonials progress bar
 function moveProgressBar() {
   let width = 1;
   let id = setInterval(frame, 10);
@@ -345,6 +394,12 @@ function loadClassCards() {
       break;
   }
 
+  //Number of cards shown depending the window's width
+  let maxCardIndex = 2;
+  if (window.outerWidth <= 900) maxCardIndex = 1;
+  if (window.outerWidth <= 600) maxCardIndex = 0;
+
+  //Goes through the classes sorted deping on the filter's value
   sortedClasses.forEach((card, index) => {
     htmlStars = '';
     numberOfStars = 0;
@@ -352,29 +407,35 @@ function loadClassCards() {
     for (let j = 0; j < numberOfStars; j++) {
       htmlStars += '<img src="assets/star.png">';
     }
-    (index > 2) ? hiddenCard = 'hidden-card': hiddenCard = '';
+    (index > maxCardIndex) ? hiddenCard = 'hidden-card': hiddenCard = '';
+
     classCardsGrid.innerHTML +=
-      '<div class="class-card ' + hiddenCard + ' ">' +
-      '<div class="card-img-container">' +
-      '<img src="' + imgSrcPath + card.img + '" class="card-img"></div>' +
-      '<div class="card-info-container">' +
-      '<h3 id="class1-title">' + card.title + '</h3>' +
-      '<div class="main-info">' +
-      '<p class="class-price">$' + card.price + '</p>' +
-      '<div class="class-instructor">' +
-      '<div class="instructor-img"><img src="' + imgSrcPath + card.instructor.img + '"></div>' +
-      '<p class="instructor-name">' + card.instructor.name + '</p></div>' +
-      '<div class="class-rating"><div class="stars">' + htmlStars + '</div>' +
-      '<p class="reviews-number" id="class1-rating-reviews">(' + card.rating.reviews + ' reviews)</p></div></div>' +
-      '<button class="full-class-btn">FULL CLASS</button>' +
-      '<div class="class-schedule">' +
-      '<p class="class-date" id="class1-day"><img src="assets/calendar.png">' + card.day + '</p>' +
-      '<p class="class-frequency" id="class1-frequency"><img src="assets/clock.png">' + card.frequency + '</p>' +
-      '<p class="class-sessions" id="class1-sessions"><img src="assets/book.png">' + card.sessions + ' SESSIONS</p></div><hr></div><div>'
+      `<div class="class-card ${hiddenCard}">
+      <div class="card-img-container">
+      <img src="${imgSrcPath + card.img }" class="card-img"></div>
+      <div class="card-info-container">
+      <h3 id="class1-title">${card.title}</h3>
+      <div class="main-info">
+      <p class="class-price">$${card.price}</p>
+      <div class="class-instructor">
+      <div class="instructor-img"><img src="${imgSrcPath + card.instructor.img}"></div>
+      <p class="instructor-name">${card.instructor.name}</p></div>
+      <div class="class-rating"><div class="stars">${htmlStars}</div>
+      <p class="reviews-number" id="class1-rating-reviews">(${card.rating.reviews} reviews)</p></div></div>
+      <button class="full-class-btn">FULL CLASS</button>
+      <div class="class-schedule">
+      <p class="class-date" id="class1-day"><img src="assets/calendar.png">${card.day}</p>
+      <p class="class-frequency" id="class1-frequency"><img src="assets/clock.png">${card.frequency}</p>
+      <p class="class-sessions" id="class1-sessions"><img src="assets/book.png">${card.sessions} SESSIONS</p></div><hr></div><div>`
+
   });
+
+  //Mantains the current view (hidden or shown)
+  viewClassCardsToggle = !viewClassCardsToggle;
+  viewClassCards(false);
 }
 
-//Function to convert a date string to number for easier comparison
+//Internal function to convert a date string to number for easier comparison
 function numericDate(date) {
   numDate = date.charAt(8) + date.charAt(9) + date.charAt(10) + date.charAt(11);
   month = date.charAt(0) + date.charAt(1) + date.charAt(2);
@@ -431,25 +492,27 @@ function loadTrainerCards() {
 
   trainers.forEach(trainer => {
     trainerCardsGrid.innerHTML +=
-      '<div class="trainer-card">' +
-      '<img src="' + imgSrcPath + trainer.icon + '" class="trainer-icon">' +
-      '<h3>' + trainer.title + '</h3>' +
-      '<p>' + trainer.desc + '</p></div>'
+      `<div class="trainer-card">
+      <img src="${imgSrcPath + trainer.icon}" class="trainer-icon">
+      <h3>${trainer.title}</h3>
+      <p>${trainer.desc}</p></div>`
   });
 
 }
 
 //View More/Less Button function that shows or hides extra class cards
-function viewClassCards() {
-  let hiddenCards = document.getElementsByClassName('hidden-card');
-  let viewBtn = document.getElementById('view-more-btn');
+function viewClassCards(fromBtn) {
+
   for (let i = 0; i < hiddenCards.length; i++) {
     (!viewClassCardsToggle) ? hiddenCards[i].style.display = 'flex': hiddenCards[i].style.display = 'none';
   }
   viewClassCardsToggle = !viewClassCardsToggle;
   (!viewClassCardsToggle) ? viewBtn.innerText = 'VIEW MORE': viewBtn.innerText = 'VIEW LESS';
-  window.scrollBy({
-    top: viewBtn.getBoundingClientRect().top - (screen.height * 0.75),
-    behavior: 'smooth'
-  });
+
+  if (fromBtn) {
+    window.scrollBy({
+      top: viewBtn.getBoundingClientRect().top - (screen.height * 0.75),
+      behavior: 'smooth'
+    });
+  }
 }
