@@ -72,7 +72,7 @@ const hoursDefinition : string[] = [
   '4PM - 6PM',
   '8PM - 10PM'
 ]
-const days : string[] = [
+const weekDays : string[] = [
   'monday',
   'tuesday',
   'wednesday',
@@ -98,8 +98,8 @@ function syncSchedule() {
         for (let i = 0; i < 7; i++) {
           daysPerRow = '';
           for (let j = 0; j < 7; j++) {
-            if (snap.val()[week][days[j]]['H' + (i + 1)] != undefined) {
-              daysPerRow += `<td class="hour"><p>${snap.val()[week][days[j]]['H' + (i + 1)]}</p><p><strong>` +
+            if (snap.val()[week][weekDays[j]]['H' + (i + 1)] != undefined) {
+              daysPerRow += `<td class="hour"><p>${snap.val()[week][weekDays[j]]['H' + (i + 1)]}</p><p><strong>` +
                 hoursDefinition[i] + '</strong></p></td>';
             } else {
               daysPerRow += '<td class="hour"></td>'
@@ -144,10 +144,10 @@ function syncSchedule() {
       activitiesPerDay = '';
       if (snap.val()[week] != undefined) {
         for (let j = 0; j < 7; j++) {
-          activitiesPerDay += `<tr><th class="day-name"><p>${days[j].toUpperCase()}</p></th></tr>`
+          activitiesPerDay += `<tr><th class="day-name"><p>${weekDays[j].toUpperCase()}</p></th></tr>`
           for (let i = 0; i < 7; i++) {
-            if (snap.val()[week][days[j]]['H' + (i + 1)] != undefined) {
-              activitiesPerDay += `<tr><td class="hour"><p>${snap.val()[week][days[j]]['H' + (i + 1)]}</p><p><strong>` +
+            if (snap.val()[week][weekDays[j]]['H' + (i + 1)] != undefined) {
+              activitiesPerDay += `<tr><td class="hour"><p>${snap.val()[week][weekDays[j]]['H' + (i + 1)]}</p><p><strong>` +
                 hoursDefinition[i] + '</strong></p></td></tr>';
             }
           }

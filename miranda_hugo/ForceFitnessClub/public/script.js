@@ -39,6 +39,7 @@ const imgSrcPath = 'assets/';
 let viewClassCardsToggle = false;
 let cycleCount = 0;
 let testimonialsQty = 0;
+let day;
 let tableRows;
 let daysPerRow;
 let activitiesPerDay;
@@ -66,7 +67,7 @@ const hoursDefinition = [
     '4PM - 6PM',
     '8PM - 10PM'
 ];
-const days = [
+const weekDays = [
     'monday',
     'tuesday',
     'wednesday',
@@ -86,10 +87,11 @@ function syncSchedule() {
                 for (let i = 0; i < 7; i++) {
                     daysPerRow = '';
                     for (let j = 0; j < 7; j++) {
-                        if (snap.val()[week][days[j]]['H' + (i + 1)] != undefined) {
-                            daysPerRow += `<td class="hour"><p>${snap.val()[week][days[j]]['H' + (i + 1)]}</p><p><strong>` +
+                        if (snap.val()[week][weekDays[j]]['H' + (i + 1)] != undefined) {
+                            daysPerRow += `<td class="hour"><p>${snap.val()[week][weekDays[j]]['H' + (i + 1)]}</p><p><strong>` +
                                 hoursDefinition[i] + '</strong></p></td>';
-                        } else {
+                        }
+                        else {
                             daysPerRow += '<td class="hour"></td>';
                         }
                     }
@@ -103,7 +105,8 @@ function syncSchedule() {
         <th class="day-name">FRIDAY</th>
         <th class="day-name">SATURDAY</th>
         <th class="day-name">SUNDAY</th></tr></thead><tbody>${tableRows}</tbody>`;
-            } else {
+            }
+            else {
                 for (let i = 0; i < 7; i++) {
                     daysPerRow = '';
                     for (let j = 0; j < 7; j++) {
@@ -129,17 +132,18 @@ function syncSchedule() {
             activitiesPerDay = '';
             if (snap.val()[week] != undefined) {
                 for (let j = 0; j < 7; j++) {
-                    activitiesPerDay += `<tr><th class="day-name"><p>${days[j].toUpperCase()}</p></th></tr>`;
+                    activitiesPerDay += `<tr><th class="day-name"><p>${weekDays[j].toUpperCase()}</p></th></tr>`;
                     for (let i = 0; i < 7; i++) {
-                        if (snap.val()[week][days[j]]['H' + (i + 1)] != undefined) {
-                            activitiesPerDay += `<tr><td class="hour"><p>${snap.val()[week][days[j]]['H' + (i + 1)]}</p><p><strong>` +
+                        if (snap.val()[week][weekDays[j]]['H' + (i + 1)] != undefined) {
+                            activitiesPerDay += `<tr><td class="hour"><p>${snap.val()[week][weekDays[j]]['H' + (i + 1)]}</p><p><strong>` +
                                 hoursDefinition[i] + '</strong></p></td></tr>';
                         }
                     }
                 }
                 scheduleGrid.innerHTML = '';
                 scheduleGrid.innerHTML += activitiesPerDay;
-            } else {
+            }
+            else {
                 scheduleGrid.innerHTML = '';
                 scheduleGrid.innerHTML += '<tr><td class="hour"><p>NO ACTIVITIES THIS WEEK</p></td></tr>';
             }
@@ -147,7 +151,6 @@ function syncSchedule() {
     });
 }
 syncSchedule();
-
 function syncTestimonials() {
     dbRefTestimonials.on('value', (snap) => {
         testimonials = [];
@@ -158,7 +161,8 @@ function syncTestimonials() {
                     txt: snap.val()[i].txt,
                     name: snap.val()[i].name
                 });
-            } catch (e) {
+            }
+            catch (e) {
                 console.log(`Can not push testimonial from firebase. ${e}`);
             }
         }
@@ -166,7 +170,6 @@ function syncTestimonials() {
     });
 }
 syncTestimonials();
-
 function syncClasses() {
     dbRefClasses.on('value', (snap) => {
         classes = [];
@@ -192,7 +195,6 @@ function syncClasses() {
     });
 }
 syncClasses();
-
 function syncTrainers() {
     dbRefTrainers.on('value', (snap) => {
         trainers = [];
@@ -284,11 +286,11 @@ function changeTestimonial() {
 function moveProgressBar() {
     let width = 1;
     let id = setInterval(frame, 10);
-
     function frame() {
         if (width >= 100) {
             clearInterval(id);
-        } else {
+        }
+        else {
             width += 0.1;
             bar.style.width = width + '%';
         }
@@ -344,11 +346,11 @@ function loadClassCards() {
     sortedClasses.forEach((card, index) => {
         htmlStars = '';
         numberOfStars = 0;
-        (card.rating.stars > 5) ? numberOfStars = 5: numberOfStars = card.rating.stars;
+        (card.rating.stars > 5) ? numberOfStars = 5 : numberOfStars = card.rating.stars;
         for (let j = 0; j < numberOfStars; j++) {
             htmlStars += '<img src="assets/star.png">';
         }
-        (index > maxCardIndex) ? hiddenCard = 'hidden-card': hiddenCard = '';
+        (index > maxCardIndex) ? hiddenCard = 'hidden-card' : hiddenCard = '';
         classCardsGrid.innerHTML +=
             `<div class="class-card ${hiddenCard}">
       <div class="card-img-container">
@@ -434,10 +436,10 @@ function loadTrainerCards() {
 //View More/Less Button function that shows or hides extra class cards
 function viewClassCards(fromBtn) {
     for (let i = 0; i < hiddenCards.length; i++) {
-        (!viewClassCardsToggle) ? hiddenCards[i].style.display = 'flex': hiddenCards[i].style.display = 'none';
+        (!viewClassCardsToggle) ? hiddenCards[i].style.display = 'flex' : hiddenCards[i].style.display = 'none';
     }
     viewClassCardsToggle = !viewClassCardsToggle;
-    (!viewClassCardsToggle) ? viewBtn.innerText = 'VIEW MORE': viewBtn.innerText = 'VIEW LESS';
+    (!viewClassCardsToggle) ? viewBtn.innerText = 'VIEW MORE' : viewBtn.innerText = 'VIEW LESS';
     if (fromBtn) {
         window.scrollBy({
             top: viewBtn.getBoundingClientRect().top - (screen.height * 0.75),

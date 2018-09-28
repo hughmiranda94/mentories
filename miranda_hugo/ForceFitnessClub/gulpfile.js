@@ -17,12 +17,12 @@ gulp.task('serve', ['sass'], function(){
     server: './public/'
   })
   gulp.watch('./sass/*.scss', ['sass']);
-  gulp.watch('./ts/*.ts', ['typescript']);
+  gulp.watch('./ts/*.ts', ['ts']);
   gulp.watch('.*.html').on('change', browserSync.reload);
   gulp.watch('./*.js').on('change', browserSync.reload);
 });
 
-gulp.task('typescript', function(){
+gulp.task('ts', function(){
   // return gulp.src('./ts/*.ts')
   //   .pipe(typescript())
   //   .pipe(gulp.dest('./public'))
